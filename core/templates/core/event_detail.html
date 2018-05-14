@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %} 
+{% block content %}
+
+<h2>{{ event.title }}</h2>
+<h4>{{ event.description|linebreaksbr }}</h4>
+<br>
+
+{% if event.image %}
+<img src="{{ event.image }}" />
+{% endif %}
+<h3>Lugar:</h3>
+<p>{{ event.place }}</p>
+<h3>Fecha:</h3>
+<p>{{ event.date }}</p>
+
+<a id="Volver" href="/">Volver</a>
+
+{% endblock %}

@@ -4,16 +4,13 @@ from versatileimagefield.fields import VersatileImageField
 
 # Create your models here.
 
-
-
-
 class Place(models.Model):
 
-    # COUNCIL_CHOICES = (
-    #     ('MEAÑO', 'Meaño'),
-    #     ('SANXENXO', 'Sanxenxo'),
-    #     ('CAMBADOS', 'Cambados'),
-    # )
+    COUNCIL_CHOICES = (
+        ('MEAÑO', 'Meaño'),
+        ('SANXENXO', 'Sanxenxo'),
+        ('CAMBADOS', 'Cambados'),
+    )
 
 
     # DISTRICT_CHOICES = (
@@ -29,7 +26,7 @@ class Place(models.Model):
     #     ('CAMBADOS', 'Cambados'),
     #     ('CASTRELO', 'Castrelo'),
     #     ('CORVILLÓN', 'Corvillón'),
-    #     ('OUBIÑA', 'Oubiña'),
+    #     ('OUBIÑA', 'Oubiña'), 
     #     ('DENA', 'Dena'),
     #     ('PADRENDA', 'Padrenda'),
     #     ('LORES', 'Lores'),
@@ -39,13 +36,33 @@ class Place(models.Model):
     #     ('COBAS', 'Cobas'),
     # )
 
-    # council = models.TextField('Concello', choices= COUNCIL_CHOICES ,null=False, blank=False)
-    # district = models.TextField('Districto', choices= DISTRICT_CHOICES,null=False, blank=False)
+    council = models.TextField('Concello', choices= COUNCIL_CHOICES ,default='MEAÑO' ,null=False, blank=False)
+    # district = models.TextField('Districto', choices= DISTRICT_CHOICES, default='MEAÑO', null=False, blank=False)
     name = models.CharField('Localidad', max_length=100)
-    address = models.CharField('Dirección', max_length=100)
+    address = models.CharField('Dirección', max_length=250)
 
     def __str__(self):
         return self.address
+
+
+
+# class Category(models.Model):
+    
+#     KIND_CHOICES = (
+#             ('DEPORTIVO', 'Deportivo'),
+#             ('MÚSICAL', 'Músical'),
+#             ('CULTURAL', 'Cultural'),
+#             ('OTRO', 'Otro'),
+#         )
+
+#     kind = models.TextField('Tipo', choices= KIND_CHOICES , default='CULTURAL',null=False, blank=False)
+
+# class Organism(models.Model):
+#     name = models.CharField('Nombre', null=True, blank=True, max_length=100)
+#     owner = models.CharField('Propietario', null=True, blank=True, max_length=100)
+
+#     def __str__(self):
+#         return self.name
 
 class Event(models.Model):
 
@@ -54,8 +71,13 @@ class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     place =  models.ForeignKey(Place, on_delete=models.CASCADE)
-    image = VersatileImageField('Image', upload_to='images/' ,null=True, blank=True)
+    # category =  models.ForeignKey(Category, on_delete=models.CASCADE)
+    # organism =  models.CharField(max_length=100)
+    # price = models.DecimalField('Precio', max_digits=6, decimal_places=2, null=True, default=None, blank=True)
+    image = VersatileImageField('Imagen', upload_to='images/' ,null=True, blank=True)
+
+    class Meta:
+        ordering = ["date"]
 
     def __str__(self):
         return self.title
-

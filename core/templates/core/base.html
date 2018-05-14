@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% load staticfiles %}
+
 <html lang="en">
 <head>
   <title>LEISURE TIME</title>
@@ -19,6 +20,21 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
+    .jumbotron{
+     
+      background-color:lavender ;
+      
+   
+    }
+    a{
+    color: dimgray;
+  }
+  p{
+    color:dimgray;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+   
+  }
   </style>
 </head>
 <body>
@@ -36,7 +52,6 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Inicio</a></li>
-        <li><a href="#">Sobre mi</a></li>
         <li><a href="#">Contacto</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -48,56 +63,45 @@
 
 <div class="jumbotron">
   <div class="container text-center">
-    <h1>LeisureTime Salnés</h1>      
-    <p>EVENTOS E ACTIVIDADES DA NOSA COMARCA</p>
+    <h1><b>LeisureTime Salnés</b></h1>      
+    <p>Eventos e actividades da nosa comarca</p>
+    
   </div>
+ 
 </div>
   
-<div class="container-fluid bg-3 text-center">    
+<div class="container-fluid  text-center">    
   <h3>PRÓXIMOS EVENTOS</h3><br>
-  <div class="row">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
+  
+   
+      <div class=" content container">
+
+        {% block content %} {% endblock %}
+        
+      </div>
+     
+  
 </div><br>
 
-<div class="container-fluid bg-3 text-center">    
-  <div class="row">
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3"> 
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-    <div class="col-sm-3">
-      <p>Some text..</p>
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-    </div>
-  </div>
-</div><br><br>
+{% for event in events %}
+<div class="container-fluid  text-center ">    
+  
+    <div class="row">
+      
+     
 
+      <a href="{% url 'event_detail' pk=event.pk  %}"><h4><b>{{ event.title }}</b></h4></a>
+      <p>{{ event.image }}</p>
+     
+            <img src="https://placehold.it/150x80?text=IMAGE" class="img-center" style="width:70%" alt="Image">
+   
+            <h5>{{ event.date }}</h5>
+          
+          </div>
+</div><br><br>
+{% endfor %}
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>Galicia, Spain</p>
 </footer>
 
 </body>
