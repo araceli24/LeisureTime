@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'versatileimagefield',
-
+    'geoposition',
+  
     'core',
 ]
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -123,3 +125,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'

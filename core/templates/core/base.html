@@ -1,0 +1,111 @@
+{% load staticfiles %}
+
+<html lang="en">
+<head>
+  <title>LEISURE TIME</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Add a gray background color and some padding to the footer */
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    .jumbotron{
+     
+      background-color:lavender ;
+      
+   
+    }
+    a{
+    color: dimgray;
+  
+  }
+  p{
+    color:dimgray;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-style: italic;
+    font-size: medium;
+  }
+  img{
+    box-shadow: 2px 2px 5px #999;
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">Bienvenid@,  {{ user.get_username }}</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/">Inicio</a></li>
+      
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        <li><a href="{% url 'event_new' %}"><span class="glyphicon glyphicon-plus"></span>Nuevo Evento</a></li>
+       
+        {% else %}
+        <li><a href="/"><span class="glyphicon glyphicon-calendar"></span>Calendario</a></li>
+        
+        
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+    
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron">
+  <div class="container text-center">
+      
+    <h1><b>LeisureTime Salnés</b></h1>      
+    <p>Eventos e actividades da nosa comarca</p>
+    
+  </div>
+ 
+</div>
+  
+<div class="container-fluid  text-center"> 
+ 
+      <div class=" content container">
+
+        {% block content %}
+        <h3>PRÓXIMOS EVENTOS</h3>
+        <hr>
+         {% endblock %}
+        
+         {% block list %}
+         {% endblock %}
+      </div>
+     
+  
+</div>
+
+
+<footer class="container-fluid text-center">
+  <p> <span class="glyphicon glyphicon-globe"></span>Galicia, Spain</p>
+ 
+</footer>
+
+</body>
+</html>
