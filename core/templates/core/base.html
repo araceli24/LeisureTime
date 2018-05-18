@@ -13,6 +13,7 @@
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
+      
     }
     
     /* Add a gray background color and some padding to the footer */
@@ -20,12 +21,24 @@
       background-color: #f2f2f2;
       padding: 25px;
     }
-    .jumbotron{
+     .img{
      
-      background-color:lavender ;
-      
-   
+    color: #fff;
+    background: #000 url("https://cdn.pixabay.com/photo/2017/04/09/09/56/avenue-2215317_960_720.jpg") top center no-repeat;
+    width: 100%;
+    height: 40%;
+    background-size: cover;
+  
     }
+.centered {
+    position: relative;
+    text-align: center;
+    text-shadow: honeydew;
+    color: floralwhite;
+    transform: translate(1%, -300%);
+    background-size: cover;
+    padding: 0mm;
+}
     a{
     color: dimgray;
   
@@ -35,6 +48,7 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
     font-size: medium;
+    text-align: center;
   }
   img{
     box-shadow: 2px 2px 5px #999;
@@ -60,11 +74,12 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {% if user.is_authenticated %}
-        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         <li><a href="{% url 'event_new' %}"><span class="glyphicon glyphicon-plus"></span>Nuevo Evento</a></li>
-       
+        <li><a href="{% url 'place_new' %}"><span class="glyphicon glyphicon-plus"></span>Añadir Ubicación</a></li>
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+
         {% else %}
-        <li><a href="/"><span class="glyphicon glyphicon-calendar"></span>Calendario</a></li>
+        <!-- <li><a href="/"><span class="glyphicon glyphicon-calendar"></span>Calendario</a></li> -->
         
         
         <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -75,28 +90,33 @@
   </div>
 </nav>
 
-<div class="jumbotron">
-  <div class="container text-center">
+
+<div class="img">
+   
+ 
+ 
+</div>
+  <div class="centered">
       
     <h1><b>LeisureTime Salnés</b></h1>      
-    <p>Eventos e actividades da nosa comarca</p>
+    <h4>Eventos e actividades da nosa comarca</h4>
     
   </div>
  
-</div>
-  
 <div class="container-fluid  text-center"> 
  
-      <div class=" content container">
+      <div class=" content container-fluid">
 
         {% block content %}
         <h3>PRÓXIMOS EVENTOS</h3>
         <hr>
          {% endblock %}
         
-         {% block list %}
-         {% endblock %}
-      </div>
+              <div class="col-md-6 col-md-push-6">
+                  {% block list %}
+                  {% endblock %}
+          </div>
+     
      
   
 </div>

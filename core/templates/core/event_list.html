@@ -3,19 +3,22 @@
 
 {% block list %}
 
+
 {% for event in events %}
+
+
 
 <div class="event">
     <a href="{% url 'event_detail' pk=event.pk  %}"><h4><b>{{ event.title }}</b></h4></a>
-<img src="https://unsplash.it/700/500/?random"  class="img-center" style="width:70%" alt="Image">
+<img src="https://unsplash.it/700/500/?random={{event.pk}}"  class="img-center" style="width:70%" alt="Image">
 <br>
 
 <br>
 <p>{{ event.date|date:"D d M" }} a las {{ event.time }}h</p>
-<p>{{ event.category }}</p>
+<a href="#"><span class="label label-default">{{ event.category }}</span></a>
 {% if event.price %}
 
-<p>{{ event.price }} €</p>
+<h5>{{ event.price }} €</h5>
 
 {% endif %}
 

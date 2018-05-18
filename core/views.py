@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .forms import EventForm
+from .forms import EventForm, PlaceForm
 from .models import Event, Place
 from django.views.generic import DetailView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView, FormView
@@ -37,6 +37,13 @@ class EventCreate(CreateView):
     template_name = 'core/event_new.html'
     success_url = reverse_lazy('events_list')
     form = EventForm
+
+class PlaceCreate(CreateView):
+    model = Place
+    fields = ['name', 'address', 'council', 'district']
+    template_name = 'core/place_new.html'
+    success_url = reverse_lazy('events_list')
+    form = PlaceForm
 
 class EventDetail(DetailView):
 

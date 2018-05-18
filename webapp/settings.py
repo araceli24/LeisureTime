@@ -44,6 +44,14 @@ INSTALLED_APPS = [
     'core',
 ]
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 3,
+    'maxZoom': 15,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+         'cursor': 'move'
+     }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

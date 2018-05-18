@@ -14,7 +14,7 @@ from core import models
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
     model = models.Place
-    fields = ('name', 'address', 'council', 'district')
+    fields = ('name', 'address', 'council', 'district', 'position')
 
 
 @admin.register(Event)

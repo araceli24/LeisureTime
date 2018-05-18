@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from versatileimagefield.fields import VersatileImageField
-# from geoposition.fields import GeopositionField
+from geoposition.fields import GeopositionField
 
 # Create your models here.
 
@@ -41,7 +41,7 @@ class Place(models.Model):
     district = models.TextField('Parroquia', choices= DISTRICT_CHOICES, default='MEAÑO', null=False, blank=False)
     name = models.CharField('Nombre', max_length=100, null=True, blank=True)
     address = models.CharField('Dirección', max_length=250)
-
+    position = GeopositionField(blank=True)
 
     def __str__(self):
         return self.name
