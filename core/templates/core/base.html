@@ -28,12 +28,16 @@
     }
     a{
     color: dimgray;
+  
   }
   p{
     color:dimgray;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-style: italic;
-   
+    font-size: medium;
+  }
+  img{
+    box-shadow: 2px 2px 5px #999;
   }
   </style>
 </head>
@@ -47,15 +51,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">LeisureTime Salnés</a>
+      <a class="navbar-brand" href="/">Bienvenid@,  {{ user.get_username }}</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Inicio</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li class="active"><a href="/">Inicio</a></li>
+      
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        <li><a href="{% url 'event_new' %}"><span class="glyphicon glyphicon-plus"></span>Nuevo Evento</a></li>
+       
+        {% else %}
+        <li><a href="/"><span class="glyphicon glyphicon-calendar"></span>Calendario</a></li>
+        
+        
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+    
       </ul>
     </div>
   </div>
@@ -63,6 +77,7 @@
 
 <div class="jumbotron">
   <div class="container text-center">
+      
     <h1><b>LeisureTime Salnés</b></h1>      
     <p>Eventos e actividades da nosa comarca</p>
     
@@ -70,38 +85,26 @@
  
 </div>
   
-<div class="container-fluid  text-center">    
-  <h3>PRÓXIMOS EVENTOS</h3><br>
-  
-   
+<div class="container-fluid  text-center"> 
+ 
       <div class=" content container">
 
-        {% block content %} {% endblock %}
+        {% block content %}
+        <h3>PRÓXIMOS EVENTOS</h3>
+        <hr>
+         {% endblock %}
         
+         {% block list %}
+         {% endblock %}
       </div>
      
   
-</div><br>
+</div>
 
-{% for event in events %}
-<div class="container-fluid  text-center ">    
-  
-    <div class="row">
-      
-     
 
-      <a href="{% url 'event_detail' pk=event.pk  %}"><h4><b>{{ event.title }}</b></h4></a>
-      <p>{{ event.image }}</p>
-     
-            <img src="https://placehold.it/150x80?text=IMAGE" class="img-center" style="width:70%" alt="Image">
-   
-            <h5>{{ event.date }}</h5>
-          
-          </div>
-</div><br><br>
-{% endfor %}
 <footer class="container-fluid text-center">
-  <p>Galicia, Spain</p>
+  <p> <span class="glyphicon glyphicon-globe"></span>Galicia, Spain</p>
+ 
 </footer>
 
 </body>

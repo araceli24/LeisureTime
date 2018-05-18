@@ -1,13 +1,25 @@
 {% extends 'core/base.html' %} 
 
 
-<h2>Eventos</h2>
+{% block list %}
 
 {% for event in events %}
 
 <div class="event">
-<h3>{{ event.title }}</h3>
-<p>{{ event.description }}</p>
+    <a href="{% url 'event_detail' pk=event.pk  %}"><h4><b>{{ event.title }}</b></h4></a>
+<img src="https://unsplash.it/700/500/?random"  class="img-center" style="width:70%" alt="Image">
+<br>
+
+<br>
+<p>{{ event.date|date:"D d M" }} a las {{ event.time }}h</p>
+<p>{{ event.category }}</p>
+{% if event.price %}
+
+<p>{{ event.price }} €</p>
+
+{% endif %}
 
 </div>
+<br><br>
 {% endfor %}
+{% endblock %}

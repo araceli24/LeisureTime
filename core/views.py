@@ -3,44 +3,50 @@ from django.contrib.auth.models import User
 from .forms import EventForm
 from .models import Event, Place
 from django.views.generic import DetailView
-# from django.template.loader import render_to_string
-# from django.views.generic import TemplateView
-# from django.shortcuts import redirect
-# from app.form import ContactForm
+from django.views.generic.edit import DeleteView, CreateView, UpdateView, FormView
+from django.views.generic import ListView
+from django.urls import reverse_lazy
+from django.contrib.auth.views import LoginView
+
+from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect
 
 # Create your views here.
 
 def event_list(request):
         events = Event.objects.all()
         places = Place.objects.all()
-       
-        return render(request, "core/event_list.html", {'events': events, 'places': places })
+
+        return render(request, "core/event_list.html", { 'events': events, 'places': places } )
+
+def event_delete(request, pk):
+    event = get_object_or_404(Event, pk=pk)
+    event.delete()
+    return redirect('events_list')
+
+class EventUpdate(UpdateView):
+    model = Event
+    fields = ['user','title', 'date','time', 'description', 'category', 'place' , 'price' ,'image']
+    template_name = 'core/event_new.html'
+    success_url = reverse_lazy('events_list')
+
+class EventCreate(CreateView):
+    model = Event
+    fields = ['user','title', 'date','time', 'description', 'category', 'place' , 'price' ,'image']
+    
+    template_name = 'core/event_new.html'
+    success_url = reverse_lazy('events_list')
+    form = EventForm
 
 class EventDetail(DetailView):
 
     template_name = "core/event_detail.html"
     model = Event
 
-# class HomeView(TemplateView):
-#         template_name = 'home.html'
+class Login(LoginView):
 
-#         def get_context_data(self, **kwargs):
-#                 context = super().get_context_data(**kwargs)
-#                 context['contact_form'] = ContactForm()
-
-#                 return context
-        
-#         def post(self, request, *args, **kwargs):
-#                 name = request.POST.get('name')
-#                 email = request.POST.get('email')
-#                 message = request.POST.get('message')
-
-#                 body = render_to_string(
-#                         'email_content.html',{
-#                                 'name': name,
-#                                 'email': email,
-#                                 'message': message,
-#                         },
-#                 )
-
-#                 return redirect ('home')
+    def form_valid(self, form):
+    
+        context= super() .form_valid(form)
+        # check in
+        return context
