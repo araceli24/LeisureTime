@@ -46,26 +46,6 @@ class Place(models.Model):
     def __str__(self):
         return self.name
 
-
-
-# class Category(models.Model):
-    
-#     CATEGORY_CHOICES = (
-#             ('DEPORTIVO', 'Deportivo'),
-#             ('MÚSICAL', 'Músical'),
-#             ('CULTURAL', 'Cultural'),
-#             ('OTRO', 'Otro'),
-#         )
-
-#     category = models.TextField('Tipo', choices= CATEGORY_CHOICES , default='CULTURAL',null=False, blank=False)
-
-# class Organism(models.Model):
-#     name = models.CharField('Nombre', null=True, blank=True, max_length=100)
-#     owner = models.CharField('Propietario', null=True, blank=True, max_length=100)
-
-#     def __str__(self):
-#         return self.name
-
 class Event(models.Model):
 
     CATEGORY_CHOICES = (
@@ -82,7 +62,6 @@ class Event(models.Model):
     description = models.TextField()
     place =  models.ForeignKey(Place, on_delete=models.CASCADE)
     category = models.TextField('Tipo', choices= CATEGORY_CHOICES , default='CULTURAL',null=False, blank=False)
-    # organism =  models.CharField(max_length=200)
     price = models.DecimalField('Precio', max_digits=6, decimal_places=2, null=True, default=None, blank=True)
     image = VersatileImageField('Imagen', upload_to='images/' ,null=True, blank=True)
 
