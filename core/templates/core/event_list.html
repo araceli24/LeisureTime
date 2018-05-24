@@ -1,25 +1,43 @@
 {% extends 'core/base.html' %} 
+{% include 'core/style.css' %} 
+{% block content %}
+<h3 style="text-align: center">PRÓXIMOS EVENTOS</h3>
+ <br>
 
+        {% for event in events %} 
+                
+    <div class="card p-3 col-12 col-xs-12 col-md-6 col-lg-4">
+                       
+                        
+       
+        <a href="{% url 'event_detail' pk=event.pk  %}"> <div class="card-body">
+            
+                <a href="/?category={{ event.category }}"><span class="label label-info "style="float: left;">{{ event.category }}</span></a>
+                <br>
+                <img class="card-img-top" src="https://unsplash.it/700/500/?random={{event.pk}}" alt="Card image"></a>
+            <h4 class="card-title" style="color:#30BCCC;"><b>{{ event.title }}</b>
+                {% if event.price %}
 
-{% block list %}
+                <span style="float: right;" class="label label-success" >{{ event.price }} €</span>
+                
+                {% endif %}</h4>
+            <p class="card-text multiline-ellipsis" style="text-align: justify">{{ event.description }}</p>
+            <a href="{% url 'event_detail' pk=event.pk  %}"><button type="button" class="btn btn-info" style="float: right;"><span class="glyphicon glyphicon-menu-right"></span></button></a>
 
-{% for event in events %}
+        </div>
+          <div class="card-footer">
+                
+            
+            <!-- <a href="{% url 'event_detail' pk=event.pk  %}"><button type="button" class="btn btn-default" style="float: right;"><span class="glyphicon glyphicon-menu-right"></span></button></a> -->
+           <small> <p style="float: left;"><span class="glyphicon glyphicon-map-marker" style="color:#30BCCC;"></span>{{ event.place.council|title }}</p>
+            <p style="float: right;">{{ event.date|date:"D d M" }} a las {{ event.time }}h</p></small>
 
-<div class="event">
-    <a href="{% url 'event_detail' pk=event.pk  %}"><h4><b>{{ event.title }}</b></h4></a>
-<img src="https://unsplash.it/700/500/?random"  class="img-center" style="width:70%" alt="Image">
-<br>
+        </div>
+      
+         
 
-<br>
-<p>{{ event.date|date:"D d M" }} a las {{ event.time }}h</p>
-<p>{{ event.category }}</p>
-{% if event.price %}
-
-<p>{{ event.price }} €</p>
-
-{% endif %}
 
 </div>
-<br><br>
 {% endfor %}
+
 {% endblock %}

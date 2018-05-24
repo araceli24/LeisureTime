@@ -1,8 +1,8 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-    <h2>Nuevo Evento</h2>
-    <form method="POST" class="event-form text-center">{% csrf_token %}
+    <h2>Nueva Ubicación</h2>
+    <form method="POST" class="event-form">{% csrf_token %}
         {{ form.as_p}}
         <button type="submit" class="save btn btn-default">GUARDAR</button>
         <button type="reset" class="reset btn btn-default">CANCELAR</button>

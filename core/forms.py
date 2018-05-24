@@ -15,9 +15,15 @@ class EventForm(forms.ModelForm):
     #date = forms.DateField(widget=forms.SelectDateWidget())
     class Meta:
         model = Event
-        fields = ['user', 'date', 'time', 'title', 'description', 'category','price', 'place']
+        fields = ['user', 'date', 'time', 'title', 'description', 'category','price', 'place', 'image']
        
     def __init__(self, *args, **kwargs):
             super(EventForm, self).__init__(*args, **kwargs)
             self.fields['date'].widget = widgets.AdminDateWidget()
             self.fields['time'].widget = widgets.AdminTimeWidget()
+
+class PlaceForm(forms.ModelForm):
+    
+    class Meta:
+        model = Place
+        fields = ['name', 'address', 'council', 'district', 'position']
