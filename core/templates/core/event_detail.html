@@ -22,12 +22,13 @@
 {% endif %}
 
 <hr>
-
+<div id="options">
 <a id="volver" href="/"><span class="glyphicon glyphicon-menu-left"></span>Volver</a>
 
 {% if user.is_authenticated %}
 <a href="{% url 'event_delete' pk=event.pk %}"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
 <a href="{% url 'event_edit' pk=event.pk %}"><span class="glyphicon glyphicon-cog"></span>Editar</a>
 {% endif %}
+</div>
 {% endblock %}
 
