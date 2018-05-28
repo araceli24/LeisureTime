@@ -1,8 +1,10 @@
 from django.contrib import admin
 from .models import Place, Event
 
+
 from core import models
 # Register your models here.
+admin.site.site_header = 'Leisure'
 
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):

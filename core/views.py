@@ -8,10 +8,15 @@ from django.views.generic import ListView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
 
+
+from django.core.paginator import EmptyPage, InvalidPage, Paginator
+
+
 from .filters import EventFilter
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
+from django.contrib.sites.shortcuts import get_current_site
 
 # Create your views here.
 
@@ -38,7 +43,8 @@ class EventListView(ListView):
     queryset = Event.objects.all()
     template_name = "events/event_list.html"
     context_object_name= 'events'
-
+    paginate_by=6
+    
     def get_queryset(self):
         queryset = super().get_queryset()
         category = self.request.GET.get('category')
@@ -98,7 +104,20 @@ class Login(LoginView):
         # check in
         return context
 
+# from django.shortcuts import render_to_response
+# from django.template import RequestContext
 
+def handler404(request):
+    return render(request, "core/404.html", status=404)
+
+def handler500(request):
+    return render(request, "core/500.html", status=500)
+
+
+# def error_404(request):
+#     nombre_template = 'core/404.html'
+ 
+#     return page_not_found(request, template_name=nombre_template)
 # def contact(request):
 #     return render(request, 'contact.html')
 
