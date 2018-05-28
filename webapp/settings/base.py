@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+# PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = 'ti4x%-ugqn(g*iwr!degupxg)x8tz_42ga*t79+gih#5wt0whr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+TEMPLATE_DEBUG = DEBUG
 
 
 # Application definition
@@ -37,14 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
+    'core',
+    'webapp',
 
     'versatileimagefield',
     'geoposition',
+    'debug_toolbar',
     'django_filters',
+    # 'bootstrap_pagination',
   
-    'core',
-    'webapp'
+    
 ]
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
 GEOPOSITION_MAP_OPTIONS = {
@@ -56,7 +60,12 @@ GEOPOSITION_MARKER_OPTIONS = {
          'cursor': 'move'
      }
 
+# TEMPLATE_CONTEXT_PROCESSORS = (
+#     "django.core.context_processors.request",
+# )
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -122,6 +131,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-es'
 
+SITE_ID = 1
+
 TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
@@ -136,13 +147,19 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
+# STATICFILES_DIRS = (
+#     os.path.join(BASE_DIR, 'static'),
+# )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# print(f'AQUI --> {BASE_DIR}')
+# Uploaded files
+MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
+MEDIA_URL = '/resource/'
 
+# Whitenoise
+WHITENOISE_ROOT = os.path.join(BASE_DIR, 'rootfiles')
 
-
+#Login
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
