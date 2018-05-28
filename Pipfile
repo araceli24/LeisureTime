@@ -4,10 +4,20 @@ verify_ssl = true
 name = "pypi"
 
 [dev-packages]
+coverage = "*"
+flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
+pytest-django = "*"
 
 [packages]
-"flake8" = "*"
+Django = "*"
 django-filter = "*"
+django-debug-toolbar = "*"
+django-heroku = "*"
+django-bootstrap-pagination = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
 
 [requires]
 python_version = "3.6"
