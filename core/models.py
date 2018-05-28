@@ -55,15 +55,28 @@ class Event(models.Model):
         ('OTRO', 'Otro'),
     )
 
+    DURATION_CHOICES = (
+        ('Todo el día', 'Día completo'),
+        ('Mañana', 'Mañana'),
+        ('Tarde', 'Tarde'),
+        ('Noche','Noche' ),
+        ('Fin de semana ', 'Fin de semana'),
+        
+    )
+
     user = models.ManyToManyField(User)
     date = models.DateField('Fecha')
-    time = models.TimeField('Hora')
+    date_end= models.DateField('Fecha fin',null=True, blank=True)
+    time = models.TimeField('Hora',null=True, blank=True)
+    time_end = models.TimeField('Hora fin' ,null=True, blank=True)
     title = models.CharField('Nombre del evento', max_length=100)
     description = models.TextField()
     place =  models.ForeignKey(Place, on_delete=models.CASCADE)
     category = models.TextField('Tipo', choices= CATEGORY_CHOICES , default='CULTURAL',null=False, blank=False)
     price = models.DecimalField('Precio', max_digits=6, decimal_places=2, null=True, default=None, blank=True)
     image = VersatileImageField('Imagen', upload_to='images/' ,null=True, blank=True)
+    duration = models.TextField('Duración', choices= DURATION_CHOICES , null=True, blank=True)
+
 
     class Meta:
         ordering = ["date", "time"]

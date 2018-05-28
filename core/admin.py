@@ -12,4 +12,4 @@ class PlaceAdmin(admin.ModelAdmin):
 @admin.register(Event)
 class EventAdmin(admin.ModelAdmin):
     model = models.Event
-    fields = ('user', 'date', 'time', 'title', 'description', 'category', 'place' , 'price' ,'image')
+    fields = ('user', 'date', 'date_end', 'time', 'time_end', 'duration', 'title', 'description', 'category', 'place' , 'price' ,'image')
