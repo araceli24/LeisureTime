@@ -1,78 +1,102 @@
 {% load static %}
 <html>
+
 <head>
   <title>LECER NO SALNÉS</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
- 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  
+
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
 </head>
+
 <body>
 
- <div class="topnav  navbar-expand-lg navbar-expand-md navbar-light bg-light">
+  <div class="topnav  navbar-expand-lg navbar-expand-md navbar-light bg-light">
 
-  
+
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon">
-           
+        <span class="navbar-toggler-icon">
       </button>
-      <p><a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" style="color:#30BCCC;"></span>Bienvenid@,  {{ user.get_username }}</a></p>
-      
-    </div>
-  
-    <div class="collapse navbar-collapse" id="myNavbar">
- 
-      <ul class="nav navbar-nav navbar-right">
-          <li> <a href="{% url 'event_passed' %}"><span class="glyphicon glyphicon-pushpin" style=  "color:#30BCCC;"></span>Historial</a></li>
 
-          <li><a href="{% url 'search' %}"><span class="glyphicon glyphicon-search" style="color:#30BCCC;"></span>Buscar</a></li>
+      <p>
+        <a class="navbar-brand" href="/">
+          <span class="glyphicon glyphicon-home"></span> {% if user.is_authenticated %} Hola, {{ user.get_username }} {% endif %}</a>
+      </p>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="{% url 'event_passed' %}">
+            <span class="glyphicon glyphicon-pushpin"></span>Historial</a>
+        </li>
+        <li>
+          <a href="{% url 'search' %}">
+            <span class="glyphicon glyphicon-search"></span>Buscar</a>
+        </li>
+
         {% if user.is_authenticated %}
-        <li><a href="{% url 'event_new' %}"><span class="glyphicon glyphicon-plus" style="color:#30BCCC;"></span>Nuevo Evento</a></li>
-        <li><a href="{% url 'place_new' %}"><span class="glyphicon glyphicon-plus" style="color:#30BCCC;"></span>Añadir Ubicación</a></li>
-        
-        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" style="color:#30BCCC;"></span>Logout</a></li>
+        <li>
+          <a href="{% url 'event_new' %}">
+            <span class="glyphicon glyphicon-plus"></span>Nuevo Evento</a>
+        </li>
+        <li>
+          <a href="{% url 'place_new' %}">
+            <span class="glyphicon glyphicon-plus"></span>Añadir Ubicación</a>
+        </li>
+        <li>
+          <a href="{% url 'logout' %}">
+            <span class="glyphicon glyphicon-log-out"></span>Logout</a>
+        </li>
 
         {% else %}
-        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in" style="color:#30BCCC;"></span> Login</a></li>
+        <li>
+          <a href="{% url 'login' %}">
+            <span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
         {% endif %}
-    
       </ul>
-     
-    </div>
-    <div class="jumbotron" style="text-shadow: 2px 2px 2px black; color: white;">
 
-
-      <h1 style="text-align: center">Lecer no Salnés</h1>
-
-      <p style="color: white;">Eventos e actividades da comarca </p>
-  
-
-      </div>
-</div>
-
-
-    <div class="container text-justify"> 
-      
-        {% block content %}
-        {% endblock %}
-        
     </div>
 
+    <div class="jumbotron">
+      <h1>Lecer no Salnés</h1>
+      <p>Eventos e actividades da comarca </p>
+    </div>
 
-<footer class="container-fluid text-center">
-  <p> <span class="glyphicon glyphicon-globe"></span>Galicia, Spain</p>
-  <p><small>by Araceli Lores</small> </p>
-</footer>
+  </div>
+
+  <div class="container text-justify">
+
+    {% block content %} {% endblock %}
+
+  </div>
+
+
+  <footer class="container-fluid text-center">
+    <p>
+      <span class="glyphicon glyphicon-globe"></span>Galicia, Spain</p>
+    <p>
+      <small>by Araceli Lores</small>
+    </p>
+  </footer>
 
 </body>
+
 </html>
