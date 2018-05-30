@@ -1,0 +1,18 @@
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
+<form method="get">
+    {{ filter.form.as_p }}
+  <p> <button type="submit">Buscar</button></p> 
+  </form>
+
+    <ul>
+        {% for event in filter.qs %}
+          <li>{{ event.title }} - {{ event.description|truncatechars:250 }}</li>
+          <a href="{% url 'event_detail' pk=event.pk  %}">Ver</a>
+        {% endfor %}
+        </ul>
+
+{% endblock %}
+

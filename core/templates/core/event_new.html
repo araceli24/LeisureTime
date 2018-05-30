@@ -2,12 +2,22 @@
 
 {% block content %}
     <h2>Nuevo Evento</h2>
-    <form method="POST" class="event-form text-center">{% csrf_token %}
+    <form method="POST" onsubmit="return checkForm(this);" class="event-form text-center">{% csrf_token %}
         {{ form.as_p}}
-        <button type="submit" class="save btn btn-default">GUARDAR</button>
+        <button type="submit" id="myButton" class="save btn btn-default">GUARDAR</button>
         <button type="reset" class="reset btn btn-default">CANCELAR</button>
        <br><br>
         <a href="/"> Volver </a>
        
     </form>
+
+    <script >
+            function checkForm(form)
+                {
+                form.myButton.disabled = true;
+                return true;
+            }
+    </script>
+
+
 {% endblock %}

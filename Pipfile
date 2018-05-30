@@ -18,6 +18,7 @@ django-heroku = "*"
 django-bootstrap-pagination = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+django-sitemaps = "*"
 
 [requires]
 python_version = "3.6"

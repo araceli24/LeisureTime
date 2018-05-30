@@ -1,21 +1,31 @@
 {% extends 'core/base.html' %} 
-{% include 'core/style.css' %} 
 {% block content %}
-<h3 style="text-align: center">PRÓXIMOS EVENTOS</h3>
- <br>
+<h4 style="color:rgb(12, 111, 122);" "text-align: center"><b>PRÓXIMOS EVENTOS</b>
+
+
+</h4>
+
+<hr>
 
         {% for event in events %} 
                 
+
+
     <div class="card p-3 col-12 col-xs-12 col-md-6 col-lg-4">
                        
-                        
-       
-        <a href="{% url 'event_detail' pk=event.pk  %}"> <div class="card-body">
+        <a href="{% url 'event_detail' pk=event.pk  %}"> 
+            <div class="card-body">
             
                 <a href="/?category={{ event.category }}"><span class="label label-info "style="float: left;">{{ event.category }}</span></a>
                 <br>
-                <img class="card-img-top" src="https://unsplash.it/700/500/?random={{event.pk}}" alt="Card image"></a>
-            <h4 class="card-title" style="color:#30BCCC;"><b>{{ event.title }}</b>
+                {% if event.image %}
+                    <!-- <img src="{{ event.image.url }}" target="_blank" height="177" width="263" /> -->
+                    <img class=" card-img-top" src="{{ event.image.url }}" alt="Card image">
+                {% else %}
+                    <img class="card-img-top" src="https://picsum.photos/300/200/?random={{event.pk}}" alt="Card image">
+                {% endif %}
+                
+            <h4 class="card-title" style="color:rgb(12, 111, 122);"><b>{{ event.title|upper }}</b>
                 {% if event.price %}
 
                 <span style="float: right;" class="label label-success" >{{ event.price }} €</span>
@@ -33,11 +43,31 @@
             <p style="float: right;">{{ event.date|date:"D d M" }} a las {{ event.time }}h</p></small>
 
         </div>
-      
-         
-
 
 </div>
 {% endfor %}
+
+
+{% if is_paginated %}
+  <div class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </div>
+{% endif %}
 
 {% endblock %}
