@@ -7,40 +7,26 @@ from django.views.generic.edit import DeleteView, CreateView, UpdateView, FormVi
 from django.views.generic import ListView
 from django.urls import reverse_lazy
 from django.contrib.auth.views import LoginView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 from django.core.paginator import EmptyPage, InvalidPage, Paginator
 
-
+from django_filters.views import FilterView
 from .filters import EventFilter
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
 from django.contrib.sites.shortcuts import get_current_site
 
+from django.utils import timezone
+
 # Create your views here.
-
-# class SearchView(FilterView):
-#     template_name = "events/event_list.html"
-#     context_object_name = 'events'
-#     model = Event
-#     filterset_class = filters.EventFilter
-
-#     def get_queryset(self):
-#         queryset = super().get_queryset()
-#         category = self.request.GET.get('category')
-#         if category != None: 
-#             queryset = queryset.filter(category=category)
-#         return queryset
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return context
-
 
 class EventListView(ListView):
     model = Event
-    queryset = Event.objects.all()
+    now= timezone.now()
+    queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
     template_name = "events/event_list.html"
     context_object_name= 'events'
     paginate_by=6
@@ -54,10 +40,29 @@ class EventListView(ListView):
                     
         return queryset
 
-def event_search(request):
-    event_list = Event.objects.all()
-    event_filter = EventFilter(request.GET, queryset = event_list)
-    return render(request, 'core/event_search.html', {'filter' : event_filter})
+class EventListViewPassed(ListView):
+    model = Event
+    now= timezone.now()
+    queryset = Event.objects.all().select_related('place').filter(date__lt=now).order_by('-date')
+    template_name = "core/event_list_passed.html"
+    context_object_name= 'events'
+
+   
+    
+
+class  EventSearch(FilterView):
+    model = Event
+    template_name = 'core/search.html'
+    filterset_class = EventFilter
+    context_object_name= 'events'
+    
+    # def get_context_data(self, *args, **kwargs):
+    #     data = super().get_context_data(*args, **kwargs)
+    #     aux = self.request.GET.copy()
+    #     data['query_get_string'] = aux.urlencode()
+    #     return data
+
+
 
 class PlaceListView(ListView):
 	model = Place
@@ -65,18 +70,21 @@ class PlaceListView(ListView):
 	template_name = "places/event_list.html"
 
 
-def event_delete(request, pk):
-    event = get_object_or_404(Event, pk=pk)
-    event.delete()
-    return redirect('events_list')
+class EventDelete(LoginRequiredMixin, DeleteView):
+    model = Event
+    template_name = 'forms/event_confirm_delete.html'
+    success_url = reverse_lazy('events_list')
+    # login_url = '/login/'
+    # redirect_field_name = 'redirect_to'
 
-class EventUpdate(UpdateView):
+class EventUpdate(LoginRequiredMixin, UpdateView):
     model = Event
     fields = ['user','title', 'date','time', 'description', 'category', 'place' , 'price' ,'image']
     template_name = 'core/event_new.html'
     success_url = reverse_lazy('events_list')
 
-class EventCreate(CreateView):
+
+class EventCreate(LoginRequiredMixin, CreateView):
     model = Event
     fields = ['user','title', 'date','time', 'description', 'category', 'place' , 'price' ,'image']
     
@@ -84,7 +92,7 @@ class EventCreate(CreateView):
     success_url = reverse_lazy('events_list')
     form = EventForm
 
-class PlaceCreate(CreateView):
+class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
     fields = ['name', 'address', 'council', 'district']
     template_name = 'core/place_new.html'
@@ -101,23 +109,13 @@ class Login(LoginView):
     def form_valid(self, form):
     
         context= super() .form_valid(form)
-        # check in
+       
         return context
 
-# from django.shortcuts import render_to_response
-# from django.template import RequestContext
+
 
 def handler404(request):
     return render(request, "core/404.html", status=404)
 
 def handler500(request):
     return render(request, "core/500.html", status=500)
-
-
-# def error_404(request):
-#     nombre_template = 'core/404.html'
- 
-#     return page_not_found(request, template_name=nombre_template)
-# def contact(request):
-#     return render(request, 'contact.html')
-

@@ -26,39 +26,41 @@
           <span class="navbar-toggler-icon">
            
       </button>
-      <a class="navbar-brand" href="/">Bienvenid@,  {{ user.get_username }}</a>
+      <p><a class="navbar-brand" href="/"><span class="glyphicon glyphicon-home" style="color:#30BCCC;"></span>Bienvenid@,  {{ user.get_username }}</a></p>
+      
     </div>
+  
     <div class="collapse navbar-collapse" id="myNavbar">
-
+ 
       <ul class="nav navbar-nav navbar-right">
+          <li> <a href="{% url 'event_passed' %}"><span class="glyphicon glyphicon-pushpin" style=  "color:#30BCCC;"></span>Historial</a></li>
+
+          <li><a href="{% url 'search' %}"><span class="glyphicon glyphicon-search" style="color:#30BCCC;"></span>Buscar</a></li>
         {% if user.is_authenticated %}
         <li><a href="{% url 'event_new' %}"><span class="glyphicon glyphicon-plus" style="color:#30BCCC;"></span>Nuevo Evento</a></li>
         <li><a href="{% url 'place_new' %}"><span class="glyphicon glyphicon-plus" style="color:#30BCCC;"></span>Añadir Ubicación</a></li>
-        <li><a href="{% url 'event_search' %}"><span class="glyphicon glyphicon-search" style="color:#30BCCC;"></span>Buscar</a></li>
-
+        
         <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out" style="color:#30BCCC;"></span>Logout</a></li>
 
         {% else %}
-        
         <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in" style="color:#30BCCC;"></span> Login</a></li>
         {% endif %}
     
       </ul>
+     
+    </div>
+    <div class="jumbotron" style="text-shadow: 2px 2px 2px black; color: white;">
 
-  </div>
 
+      <h1 style="text-align: center">Lecer no Salnés</h1>
+
+      <p style="color: white;">Eventos e actividades da comarca </p>
+  
+
+      </div>
 </div>
 
 
-<div class="fondo"></div>
-  <div class="centered">
-      
-    <h1><b><style "font-family:Courier New, Courier, monospace"></style>Lecer no Salnés</b></h1>      
-    <h4>Eventos e actividades da comarca</h4>
-  </div>
-  
-  <hr>
-  
     <div class="container text-justify"> 
       
         {% block content %}

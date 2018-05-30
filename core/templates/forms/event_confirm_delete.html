@@ -1,13 +1,13 @@
-<!-- {% extends 'core/base.html' %}
+{% extends 'core/base.html' %}
 {% load static %}
 {% block content %}
 
 <div class="delete-form">
     <form action="" method="post" id="">{% csrf_token %}
-        <p class="delete-title">Seguro que quieres borrar "{{ object }}"?</p>
-        <p class="delte-warning">Se va eliminar, no hay vuelta atrás.</p>
-        <a class="btn btn-info" href="{% url 'events_list' %}">Inicio</a>
-        <input type="submit" class="btn btn-danger" value="Estoy Seguro" />
+        <h2 class="delete-title">Seguro que quieres borrar "{{ object }}"?</h2>
+        <h4 class="delete-warning">Se va eliminar definitivamente.</h4>
+        <a class="btn btn-info" href="{% url 'events_list' %}">Volver</a>
+        <input type="submit" class="btn btn-danger" value="Eliminar" />
     </form>
 </div>
-{% endblock %} -->
+{% endblock %}

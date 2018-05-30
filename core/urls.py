@@ -6,12 +6,17 @@ from core.views import EventDetail
 urlpatterns = [
     url(r'^$', views.EventListView.as_view(), name='events_list'),
 
-    url(r'^$', views.event_search, name='event_search'),
+    url(r'^search/$', views.EventSearch.as_view(),  name='search'),
+    url(r'^event/passed/$', views.EventListViewPassed.as_view(),  name='event_passed'),
 
     url(r'^event/(?P<pk>\d+)/$', views.EventDetail.as_view(), name='event_detail'),
     url(r'^event/new/$', views.EventCreate.as_view(), name='event_new'),
     url(r'^place/new/$', views.PlaceCreate.as_view(), name='place_new'),
-    url(r'^event/(?P<pk>\d+)/delete/$', views.event_delete, name='event_delete'),
+    url(r'^event/(?P<pk>\d+)/delete/$', views.EventDelete.as_view(), name='event_delete'),
     url(r'^event/(?P<pk>\d+)/edit/$', views.EventUpdate.as_view(), name='event_edit'),
-    path('accounts/', include('django.contrib.auth.urls')),
+    # path('accounts/', include('django.contrib.auth.urls')),
+
+
+
+    # path('accounts/login/', views.LoginView.as_view()),
 ]
