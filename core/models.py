@@ -30,34 +30,15 @@ class Place(TimeStampedModel):
     )
 
 
-    # DISTRICT_CHOICES = (
-    #     ('ADINA', 'Adina'),
-    #     ('ARRA', 'Arra'),
-    #     ('BORDÓNS', 'Bordóns'),
-    #     ('DORRÓN', 'Dorrón'),
-    #     ('GONDAR', 'Gondar'),
-    #     ('NANTES', 'Nantes'),
-    #     ('NOALLA', 'Noalla'),
-    #     ('PADRIÑÁN', 'Padriñán'),
-    #     ('VILALONGA', 'Vilalonga'),
-    #     ('CAMBADOS', 'Cambados'),
-    #     ('CASTRELO', 'Castrelo'),
-    #     ('CORVILLÓN', 'Corvillón'),
-    #     ('OUBIÑA', 'Oubiña'), 
-    #     ('DENA', 'Dena'),
-    #     ('PADRENDA', 'Padrenda'),
-    #     ('LORES', 'Lores'),
-    #     ('SIMES', 'Simes'),
-    #     ('MEAÑO', 'Meaño'),
-    #     ('XIL', 'Xil'),
-    #     ('COBAS', 'Cobas'),
-    # )
-
     council = models.TextField('Concello', choices= COUNCIL_CHOICES ,default='MEAÑO' ,null=False, blank=False)
     district = models.CharField('Parroquia', max_length=100, null=True, blank=True)
     name = models.CharField('Nome', max_length=100, null=True, blank=True)
     address = models.CharField('Dirección', max_length=250)
-    position = GeopositionField(blank=True)
+    latitude = models.DecimalField(
+                max_digits=9, decimal_places=7, null=True, blank=True)
+
+    longitude = models.DecimalField(
+                max_digits=9, decimal_places=7, null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -106,14 +87,14 @@ class Event(TimeStampedModel):
         return self.title
 
 
-class Map(models.Model):
+# class Map(models.Model):
 
-    name = models.CharField(max_length=255)
+#     name = models.CharField(max_length=255)
 
-    latitude = models.DecimalField(
-                max_digits=9, decimal_places=6, null=True, blank=True)
+#     latitude = models.DecimalField(
+#                 max_digits=9, decimal_places=6, null=True, blank=True)
 
-    longitude = models.DecimalField(
-                max_digits=9, decimal_places=6, null=True, blank=True)
+#     longitude = models.DecimalField(
+#                 max_digits=9, decimal_places=6, null=True, blank=True)
 
-    location = LocationField(blank=True, max_length=255)
+#     location = LocationField(blank=True, max_length=255)

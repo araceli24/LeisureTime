@@ -1,51 +1,57 @@
-{% extends 'core/base.html' %} 
-
-{% block content %}
+{% extends 'core/base.html' %} {% block content %}
 
 <h2>{{ event.title }}</h2>
 
 {% if event.duration %}
-<span style="float: top" class="label label-info" >{{ event.duration }}</span>
+
+<span style="float: top" class="label label-info">{{ event.duration }}</span>
 {% endif %}
 
 <h4>{{ event.description|linebreaksbr }}</h4>
 <br>
 <div class="card p-3 col-12 col-xs-12 col-md-6 col-lg-6">
-{% if event.image %}
-<img src="{{ event.image.url }}"  height="200" width="300"/>
-{% endif %}
-<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47101.09419460231!2d-8.821207128221285!3d42.45288012012963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2f6964cfb5d033%3A0x2d4a803ad5b5bdd2!2sMea%C3%B1o%2C+Pontevedra!5e0!3m2!1ses!2ses!4v1526481771944" width="100%" height="40%" frameborder="0" style="border:0" ></iframe>
+    {% if event.image %}
+    <img src="{{ event.image.url }}" height="200" width="300" /> {% endif %}
+    
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47101.09419460231!2d-8.821207128221285!3d42.45288012012963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd2f6964cfb5d033%3A0x2d4a803ad5b5bdd2!2sMea%C3%B1o%2C+Pontevedra!5e0!3m2!1ses!2ses!4v1526481771944"
+        width="100%" height="40%" frameborder="0" style="border:0"></iframe>
 </div>
 <br>
-<p><span class="glyphicon glyphicon-map-marker"></span></p>
+<p>
+    <span class="glyphicon glyphicon-map-marker"></span>
+</p>
 <p>{{ event.place }}</p>
-<p><small>{{ event.place.address }}</small></p>
+<p>
+    <small>{{ event.place.address }}</small>
+</p>
 
-<p><span class="glyphicon glyphicon-calendar"></span></p>
+<p>
+    <span class="glyphicon glyphicon-calendar"></span>
+</p>
 <p>{{ event.date }} </p>
 {% if event.time %}
 <p>ás {{ event.time }}h</p>
-{% endif %}
-{% if event.date_end %}
+{% endif %} {% if event.date_end %}
 <p>Fin: {{ event.date_end }} </p>
-{% endif %}
-{% if event.time_end %}
+{% endif %} {% if event.time_end %}
 <p>a las {{ event.time_end }} €</p>
-{% endif %}
-
-{% if event.price %}
-<p><span class="glyphicon glyphicon-tag"></span></p>
+{% endif %} {% if event.price %}
+<p>
+    <span class="glyphicon glyphicon-tag"></span>
+</p>
 <p>{{ event.price }} €</p>
 {% endif %}
 
 
 <div id="options">
-<a id="volver" href="/"><span class="glyphicon glyphicon-menu-left"></span>Volver</a>
+    <a id="volver" href="/">
+        <span class="glyphicon glyphicon-menu-left"></span>Volver</a>
 
-{% if user.is_authenticated %}
-<a href="{% url 'event_delete' pk=event.pk %}"><span class="glyphicon glyphicon-trash"></span>Eliminar</a>
-<a href="{% url 'event_edit' pk=event.pk %}"><span class="glyphicon glyphicon-cog"></span>Editar</a>
-{% endif %}
+    {% if user.is_authenticated %}
+    <a href="{% url 'event_delete' pk=event.pk %}">
+        <span class="glyphicon glyphicon-trash"></span>Eliminar</a>
+    <a href="{% url 'event_edit' pk=event.pk %}">
+        <span class="glyphicon glyphicon-cog"></span>Editar</a>
+    {% endif %}
 </div>
 {% endblock %}
-
