@@ -7,11 +7,11 @@ name = "pypi"
 Django = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
+requests = "*"
 django-heroku = "*"
 django-filter = "*"
 django-debug-toolbar = "*"
 django-bootstrap-pagination = "*"
-django-sitemaps = "*"
 django-versatileimagefield = "*"
 
 
