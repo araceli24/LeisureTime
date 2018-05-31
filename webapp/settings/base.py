@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# PROJECT_DIR = os.path.dirname(BASE_DIR)
+PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -151,8 +151,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
 MEDIA_URL = '/resource/'
 
-# Whitenoise
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'rootfiles')
+# # Whitenoise
+ WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
 
 #Login
 LOGIN_REDIRECT_URL = '/'
