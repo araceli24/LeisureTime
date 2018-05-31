@@ -26,14 +26,13 @@ from django.utils import timezone
 
 class EventListView(ListView):
     model = Event
-    now= timezone.now()
-    queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
     template_name = "events/event_list.html"
     context_object_name= 'events'
     paginate_by=6
     
     def get_queryset(self):
-        queryset = super().get_queryset()
+        now= timezone.now()
+        queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
         category = self.request.GET.get('category')
         if category != None: 
             queryset = queryset.filter(category=category)
