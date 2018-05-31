@@ -12,6 +12,8 @@ django-filter = "*"
 django-debug-toolbar = "*"
 django-bootstrap-pagination = "*"
 django-sitemaps = "*"
+django-versatileimagefield = "*"
+
 
 [dev-packages]
 coverage = "*"
