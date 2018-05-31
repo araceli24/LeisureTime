@@ -10,9 +10,9 @@
         <a href="{% url 'event_detail' pk=event.pk  %}">
             <div class="card-body">
 
-                <!-- <a href="/?category={{ event.category }}">
+                <a href="/?category={{ event.category }}">
                     <span class="label label-info " style="float: left;">{{ event.category }}</span>
-                </a> -->
+                </a>
                 <br> {% if event.image %}
 
                 <img class=" card-img-top" src="{{ event.image.url }}" alt="Card image"> {% else %}
