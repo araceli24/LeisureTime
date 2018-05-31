@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'webapp',
 
     'versatileimagefield',
-    # 'geoposition',
     'debug_toolbar',
     'django_filters',
   

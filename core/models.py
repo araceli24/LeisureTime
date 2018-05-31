@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from versatileimagefield.fields import VersatileImageField
-# from geoposition.fields import GeopositionField
 from django.shortcuts import reverse
 from .widgets import *
 from core.services import generate_unique_file_path
@@ -19,7 +18,7 @@ class Place(TimeStampedModel):
     COUNCIL_CHOICES = (
     
         ('CAMBADOS', 'Cambados'),
-        ('O GROVE', 'O Grove'),
+        ('OGROVE', 'O Grove'),
         ('ILLA DE AROUSA', 'Illa de Arousa'),
         ('MEAÑO', 'Meaño'),
         ('MEIS', 'Meis'),
@@ -85,16 +84,3 @@ class Event(TimeStampedModel):
 
     def __str__(self):
         return self.title
-
-
-# class Map(models.Model):
-
-#     name = models.CharField(max_length=255)
-
-#     latitude = models.DecimalField(
-#                 max_digits=9, decimal_places=6, null=True, blank=True)
-
-#     longitude = models.DecimalField(
-#                 max_digits=9, decimal_places=6, null=True, blank=True)
-
-#     location = LocationField(blank=True, max_length=255)
