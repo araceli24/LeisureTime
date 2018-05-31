@@ -5,7 +5,7 @@ from django.conf import settings
 
 from core import models
 # Register your models here.
-admin.site.site_header = 'Leisure'
+# admin.site.site_header = 'Leisure'
 
 @admin.register(Place)
 class PlaceAdmin(admin.ModelAdmin):
