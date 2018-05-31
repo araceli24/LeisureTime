@@ -104,6 +104,8 @@ DATABASES = {
     }
 }
 
+# # Whitenoise
+WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -146,13 +148,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 # print(f'AQUI --> {BASE_DIR}')
 # Uploaded files
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
+
+# STATICFILES_DIRS = [
+#     os.path.join(PROJECT_DIR, 'static'),
+# ]
+
 MEDIA_URL = '/resource/'
-
-
-
-# # Whitenoise
-WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
 
 #Login
 LOGIN_REDIRECT_URL = '/'

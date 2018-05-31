@@ -14,15 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.conf.urls import url
 from django.urls import include, path, re_path
 
-from django.conf.urls.static import static
 
-from django.shortcuts import get_object_or_404, reverse
-from django.views.generic import RedirectView, TemplateView
+# from django.shortcuts import get_object_or_404, reverse
+# from django.views.generic import RedirectView, TemplateView
  
 # handler404 = 'core.views.handler404'
 # handler500 = 'core.views.handler500'
