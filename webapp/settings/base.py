@@ -25,6 +25,9 @@ SECRET_KEY = 'ti4x%-ugqn(g*iwr!degupxg)x8tz_42ga*t79+gih#5wt0whr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -140,11 +143,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 # print(f'AQUI --> {BASE_DIR}')
 # Uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
 MEDIA_URL = '/resource/'
+
+
 
 # # Whitenoise
 WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
