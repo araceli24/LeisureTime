@@ -25,9 +25,6 @@ SECRET_KEY = 'ti4x%-ugqn(g*iwr!degupxg)x8tz_42ga*t79+gih#5wt0whr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
-
-
 # Application definition
 
 INSTALLED_APPS = [
