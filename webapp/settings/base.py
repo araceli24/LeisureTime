@@ -152,7 +152,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
 MEDIA_URL = '/resource/'
 
 # # Whitenoise
- WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
+WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
 
 #Login
 LOGIN_REDIRECT_URL = '/'
