@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from .forms import EventForm, PlaceForm
 from .models import Event, Place
 from django.views.generic import DetailView
+from django.views.generic import TemplateView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView, FormView
 from django.views.generic import ListView
 from django.urls import reverse_lazy
@@ -94,7 +95,7 @@ class EventCreate(LoginRequiredMixin, CreateView):
 
 class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
-    fields = ['name', 'address', 'council', 'district']
+    fields = ['name', 'address', 'council', 'district', 'latitude', 'longitude']
     template_name = 'core/place_new.html'
     success_url = reverse_lazy('events_list')
     form = PlaceForm
@@ -112,10 +113,12 @@ class Login(LoginView):
        
         return context
 
+class Map(TemplateView):
+    template_name = 'core/map.html'
 
 
 def handler404(request):
-    return render(request, "core/404.html", status=404)
+    return render(request, "404.html", status=404)
 
 def handler500(request):
-    return render(request, "core/500.html", status=500)
+    return render(request, "500.html", status=500)
