@@ -1,7 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from versatileimagefield.fields import VersatileImageField
-from geoposition.fields import GeopositionField
+# from geoposition.fields import GeopositionField
 from django.shortcuts import reverse
 from .widgets import *
 from core.services import generate_unique_file_path
