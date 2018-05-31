@@ -18,13 +18,13 @@ class Place(TimeStampedModel):
     COUNCIL_CHOICES = (
     
         ('CAMBADOS', 'Cambados'),
-        ('OGROVE', 'O Grove'),
+        ('O GROVE', 'O Grove'),
         ('ILLA DE AROUSA', 'Illa de Arousa'),
         ('MEAÑO', 'Meaño'),
         ('MEIS', 'Meis'),
         ('RIBADUMIA', 'Ribadumia'),
         ('SANXENXO', 'Sanxenxo'),
-        ('VILAGARCÍA', 'Vilagarcía'),
+        ('VILAGARCÍA DE AROUSA', 'Vilagarcía'),
         ('VILANOVA', 'Vilanova'),
     )
 
