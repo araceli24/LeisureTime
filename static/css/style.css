@@ -52,6 +52,7 @@ hr{
 .glyphicon{
 
   color: #30BCCC;
+  padding-right: 2px;
 }
 
 span.glyphicon.glyphicon-menu-right{
@@ -137,6 +138,19 @@ p{
   font-size: medium;
   text-align: center;
 } 
+
+form.event-form p{
+  text-align: justify;
+}
+
+form.event-form p textarea{
+  line-height: normal;
+}
+
+form.event-form p select{
+
+  height: 20px;
+}
 
 .multiline-ellipsis {
   display: block;

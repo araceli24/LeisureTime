@@ -32,7 +32,7 @@ class Place(TimeStampedModel):
     council = models.TextField('Concello', choices= COUNCIL_CHOICES ,default='MEAÑO' ,null=False, blank=False)
     district = models.CharField('Parroquia', max_length=100, null=True, blank=True)
     name = models.CharField('Nome', max_length=100, null=True, blank=True)
-    address = models.CharField('Dirección', max_length=250)
+    address = models.CharField('Dirección', max_length=250, null=True, blank=True)
     latitude = models.DecimalField(
                 max_digits=9, decimal_places=7, null=True, blank=True)
 
@@ -45,11 +45,11 @@ class Place(TimeStampedModel):
 class Event(TimeStampedModel):
 
     CATEGORY_CHOICES = (
-        ('ARTÍSTICO', 'Artístico'),
-        ('CULTURAL', 'Cultural'),
-        ('DEPORTIVO', 'Deportivo'),
-        ('GASTRONÓMICO', 'Gastronómico'),
-        ('MÚSICAL', 'Músical'),
+        ('ARTE', 'Arte'),
+        ('CULTURA', 'Cultura'),
+        ('DEPORTE', 'Deporte'),
+        ('GASTRONOMÍA', 'Gastronomía'),
+        ('MÚSICA', 'Música'),
         ('OTRO', 'Otro'),
     )
 
@@ -68,7 +68,7 @@ class Event(TimeStampedModel):
     time = models.TimeField('Hora',null=True, blank=True)
     time_end = models.TimeField('Hora fin' ,null=True, blank=True)
     title = models.CharField('Nombre del evento', max_length=100)
-    description = models.TextField()
+    description = models.TextField('Descripción', null=False, blank=False)
     place =  models.ForeignKey(Place, on_delete=models.CASCADE)
     category = models.TextField('Tipo', choices= CATEGORY_CHOICES , default='CULTURAL',null=False, blank=False)
     price = models.DecimalField('Precio', max_digits=6, decimal_places=2, null=True, default=None, blank=True)
