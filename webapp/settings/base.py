@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-# PROJECT_DIR = os.path.dirname(BASE_DIR)
+PROJECT_DIR = os.path.dirname(BASE_DIR)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = 'ti4x%-ugqn(g*iwr!degupxg)x8tz_42ga*t79+gih#5wt0whr'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-TEMPLATE_DEBUG = DEBUG
+
 
 
 # Application definition
@@ -37,30 +37,26 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.sites',
     'django.contrib.sitemaps',
     'core',
     'webapp',
 
     'versatileimagefield',
-    # 'gmaps',
-    'geoposition',
     'debug_toolbar',
     'django_filters',
-    # 'bootstrap_pagination',
   
     
 ]
 MAPS_API_KEY = 'AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568'
-GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
-GEOPOSITION_MAP_OPTIONS = {
-    'minZoom': 3,
-    'maxZoom': 15,
-}
+# GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
+# GEOPOSITION_MAP_OPTIONS = {
+#     'minZoom': 3,
+#     'maxZoom': 15,
+# }
 
-GEOPOSITION_MARKER_OPTIONS = {
-         'cursor': 'move'
-     }
+# GEOPOSITION_MARKER_OPTIONS = {
+#          'cursor': 'move'
+#      }
 
 # TEMPLATE_CONTEXT_PROCESSORS = (
 #     "django.core.context_processors.request",
@@ -108,6 +104,8 @@ DATABASES = {
     }
 }
 
+# # Whitenoise
+WHITENOISE_ROOT = os.path.join(PROJECT_DIR, 'rootfiles')
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
@@ -133,7 +131,6 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'es-es'
 
-SITE_ID = 1
 
 TIME_ZONE = 'Europe/Madrid'
 
@@ -148,19 +145,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 # print(f'AQUI --> {BASE_DIR}')
 # Uploaded files
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploaded')
-MEDIA_URL = '/resource/'
 
-# Whitenoise
-WHITENOISE_ROOT = os.path.join(BASE_DIR, 'rootfiles')
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, 'static'),
+]
+
+MEDIA_URL = '/resource/'
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
 
 #Login
 LOGIN_REDIRECT_URL = '/'

@@ -3,22 +3,26 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[packages]
+Django = "*"
+gunicorn = "*"
+psycopg2-binary = "*"
+requests = "*"
+django-heroku = "*"
+django-filter = "*"
+whitenoise = "*"
+django-debug-toolbar = "*"
+django-bootstrap-pagination = "*"
+django-versatileimagefield = "*"
+
+
 [dev-packages]
 coverage = "*"
 flake8 = "*"
 pytest = "*"
 pytest-cov = "*"
 pytest-django = "*"
-
-[packages]
-Django = "*"
-django-filter = "*"
-django-debug-toolbar = "*"
-django-heroku = "*"
-django-bootstrap-pagination = "*"
-gunicorn = "*"
-psycopg2-binary = "*"
-django-sitemaps = "*"
+pytest-selenium = "*"
 
 [requires]
 python_version = "3.6"

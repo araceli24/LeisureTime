@@ -3,7 +3,7 @@ import logging
 import mimetypes
 import os
 import uuid
-from django.contrib.sites.models import Site
+# from django.contrib.sites.models import Site
 
 
 logger = logging.getLogger()
@@ -38,5 +38,5 @@ def generate_unique_file_path(instance, filename):
     return os.path.join(folder, filename)
 
 
-def get_site_full_url():
-    return f'https://{Site.objects.get_current().domain}'
+# def get_site_full_url():
+#     return f'https://{Site.objects.get_current().domain}'

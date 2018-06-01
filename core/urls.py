@@ -7,7 +7,7 @@ urlpatterns = [
     url(r'^$', views.EventListView.as_view(), name='events_list'),
 
     url(r'^search/$', views.EventSearch.as_view(),  name='search'),
-    url(r'^event/passed/$', views.EventListViewPassed.as_view(),  name='event_passed'),
+    url(r'^event/expired/$', views.EventListViewExpired.as_view(),  name='event_expired'),
 
     url(r'^event/(?P<pk>\d+)/$', views.EventDetail.as_view(), name='event_detail'),
     url(r'^event/new/$', views.EventCreate.as_view(), name='event_new'),

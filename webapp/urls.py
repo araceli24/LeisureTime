@@ -14,15 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.conf import settings
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.contrib.sitemaps.views import sitemap
 from django.conf.urls import url
 from django.urls import include, path, re_path
 
-from django.conf.urls.static import static
 
-from django.shortcuts import get_object_or_404, reverse
-from django.views.generic import RedirectView, TemplateView
+# from django.shortcuts import get_object_or_404, reverse
+# from django.views.generic import RedirectView, TemplateView
  
 # handler404 = 'core.views.handler404'
 # handler500 = 'core.views.handler500'
@@ -39,15 +39,10 @@ urlpatterns = [
     path('', include('core.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap') 
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    urlpatterns += [
-        url(r'^debug/404$', TemplateView.as_view(template_name='404.html')),
-        url(r'^debug/500$', TemplateView.as_view(template_name='500.html')),
-    ]
     import debug_toolbar
     urlpatterns = [
-        url(r'^__debug__/', include(debug_toolbar.urls, namespace='djdj')),
+        re_path(r'^__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns

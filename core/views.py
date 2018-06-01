@@ -18,7 +18,7 @@ from .filters import EventFilter
 
 from django.shortcuts import get_object_or_404
 from django.shortcuts import redirect
-from django.contrib.sites.shortcuts import get_current_site
+# from django.contrib.sites.shortcuts import get_current_site
 
 from django.utils import timezone
 
@@ -26,14 +26,13 @@ from django.utils import timezone
 
 class EventListView(ListView):
     model = Event
-    now= timezone.now()
-    queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
     template_name = "events/event_list.html"
     context_object_name= 'events'
     paginate_by=6
     
     def get_queryset(self):
-        queryset = super().get_queryset()
+        now= timezone.now()
+        queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
         category = self.request.GET.get('category')
         if category != None: 
             queryset = queryset.filter(category=category)
@@ -41,11 +40,11 @@ class EventListView(ListView):
                     
         return queryset
 
-class EventListViewPassed(ListView):
+class EventListViewExpired(ListView):
     model = Event
     now= timezone.now()
     queryset = Event.objects.all().select_related('place').filter(date__lt=now).order_by('-date')
-    template_name = "core/event_list_passed.html"
+    template_name = "core/event_list_expired.html"
     context_object_name= 'events'
 
    
