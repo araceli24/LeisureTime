@@ -1,0 +1,164 @@
+footer {
+    background-color: #f2f2f2;
+    padding: 25px;
+  }
+
+
+
+.jumbotron{
+   
+  color: #fff;
+  background:url("https://cdn.pixabay.com/photo/2018/05/19/18/31/nature-3414007_960_720.jpg") no-repeat;
+  margin-bottom: 5px;
+  min-height: 35%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-background-size: cover;
+  background-size: cover;
+  text-shadow: 2px 2px 2px black;
+  color: white;
+
+  }
+
+  .jumbotron p{
+
+  color: white;
+
+  }
+  .jumbotron h1{
+    text-align: center;
+  }
+
+.jumbotron-custom{
+    background: url('/*background url*/') no-repeat !important;
+ }
+
+
+
+hr{
+  color:rgb(12, 111, 122);
+  background-color: rgb(12, 111, 122);
+  height: 1px;
+
+}
+  
+ 
+.navbar{
+    margin-bottom: 0%;
+    margin-block-end: 0%;
+    margin-top: 0%;
+}
+
+.glyphicon{
+
+  color: #30BCCC;
+}
+
+span.glyphicon.glyphicon-menu-right{
+
+  color: white;
+
+}
+
+div.passed h4{
+
+  color: crimson;
+}
+
+div.list h4{
+
+  color:rgb(12, 111, 122);
+
+}
+
+footer span.glyphicon{
+  color: dimgray;
+}
+
+ .pagination{
+  
+  text-align: center;
+  display: inline-block;
+  position: relative;
+
+} 
+
+div.card.col-12, .col-lg-4, .col-md-6{
+padding-right: 10px;
+padding-left: 10px;
+
+
+}
+
+a{
+  color: dimgray;
+  text-align: justify;
+}
+
+
+h7{
+
+  text-align: center;
+  text-shadow:10px 10px 10px black;
+  font-size: 30px;
+}
+
+li{
+  text-align: left;
+  float: bottom;
+}
+
+.card{
+border:1px;
+margin-top:2%;
+margin-bottom: 3%;
+margin-right: 0%;
+margin-left: 0%;
+box-shadow:   3px 3px 3px #999;
+
+}
+.card-footer{
+  padding: 2%;
+}
+
+.card-body{
+  padding: 1%;
+}
+
+h3{
+  text-align: center;
+  text-shadow:20px 20px 20px black;
+}
+
+p{
+  color:dimgray;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-style: italic;
+  font-size: medium;
+  text-align: center;
+} 
+
+.multiline-ellipsis {
+  display: block;
+  display: -webkit-box;
+  max-width: auto;
+  height: 111px;
+  margin: 1px;
+  line-height: 1.4;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+img{
+  box-shadow: 2px 2px 5px #999;
+}
+
+#options{
+
+  margin-top:15%;
+  display: block;
+  text-align: center;
+
+}

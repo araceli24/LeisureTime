@@ -3,7 +3,7 @@ import django_heroku
 
 from .base import *
 
-DEBUG = True
+DEBUG = False
 SECRET_KEY = os.getenv('SECRET_KEY')
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 django_heroku.settings(locals())
