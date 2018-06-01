@@ -156,6 +156,12 @@ form.event-form p select{
   height: 20px;
 }
 
+form.event-form p input#id_image{
+  display: flex;
+}
+
+
+
 .multiline-ellipsis {
   display: block;
   display: -webkit-box;
