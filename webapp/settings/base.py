@@ -149,9 +149,9 @@ STATIC_ROOT = os.path.join(PROJECT_DIR, 'staticfiles')
 # print(f'AQUI --> {BASE_DIR}')
 # Uploaded files
 
-# STATICFILES_DIRS = [
-#     os.path.join(PROJECT_DIR, 'static'),
-# ]
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, 'static'),
+]
 
 MEDIA_URL = '/resource/'
 MEDIA_ROOT = os.path.join(PROJECT_DIR, 'uploaded')
