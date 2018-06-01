@@ -143,6 +143,10 @@ form.event-form p{
   text-align: justify;
 }
 
+form.event-form p label{
+  display: table-row;
+}
+
 form.event-form p textarea{
   line-height: normal;
 }
