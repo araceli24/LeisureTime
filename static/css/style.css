@@ -158,12 +158,13 @@ form.event-form p select{
 
 form.event-form p textarea#id_description{
   height:unset;
-  width:90%;
+  width:100%;
 }
 
 form.event-form p input#id_image{
-  height:unset;
-  width:90%;
+  height:auto;
+  width:100%;
+  display: table;
 }
 
 
