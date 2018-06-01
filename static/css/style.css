@@ -156,10 +156,15 @@ form.event-form p select{
   height: 20px;
 }
 
-form.event-form p input#id_image{
-  display: flex;
+form.event-form p textarea#id_description{
+  height:unset;
+  width:90%;
 }
 
+form.event-form p input#id_image{
+  height:unset;
+  width:90%;
+}
 
 
 .multiline-ellipsis {
