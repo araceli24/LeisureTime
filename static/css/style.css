@@ -8,7 +8,7 @@ footer {
 .jumbotron{
    
   color: #fff;
-  background:url("https://cdn.pixabay.com/photo/2018/05/19/18/31/nature-3414007_960_720.jpg") no-repeat;
+  background:url("../img/background_nav.jpg") no-repeat;
   margin-bottom: 5px;
   min-height: 35%;
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ footer {
   .jumbotron p{
 
   color: white;
-
+  text-shadow: 3px 3px 3px black;
   }
   .jumbotron h1{
     text-align: center;
@@ -52,6 +52,7 @@ hr{
 .glyphicon{
 
   color: #30BCCC;
+  padding-right: 2px;
 }
 
 span.glyphicon.glyphicon-menu-right{
@@ -114,7 +115,7 @@ margin-top:2%;
 margin-bottom: 3%;
 margin-right: 0%;
 margin-left: 0%;
-box-shadow:   3px 3px 3px #999;
+box-shadow:1px 3px 3px 3px #999;
 
 }
 .card-footer{
@@ -137,6 +138,35 @@ p{
   font-size: medium;
   text-align: center;
 } 
+
+form.event-form p{
+  text-align: justify;
+}
+
+form.event-form p label{
+  display: table-row;
+}
+
+form.event-form p textarea{
+  line-height: normal;
+}
+
+form.event-form p select{
+
+  height: 20px;
+}
+
+form.event-form p textarea#id_description{
+  height:unset;
+  width:100%;
+}
+
+form.event-form p input#id_image{
+  height:unset;
+  width:100%;
+
+}
+
 
 .multiline-ellipsis {
   display: block;
