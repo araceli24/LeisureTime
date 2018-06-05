@@ -31,7 +31,7 @@ class Place(TimeStampedModel):
 
     council = models.TextField('Concello', choices= COUNCIL_CHOICES ,default='MEAÑO' ,null=False, blank=False)
     district = models.CharField('Parroquia', max_length=100, null=True, blank=True)
-    name = models.CharField('Nome', max_length=100, null=True, blank=True)
+    name = models.CharField('Nome', max_length=100, null=False, blank=False)
     address = models.CharField('Dirección', max_length=250, null=True, blank=True)
     latitude = models.DecimalField(
                 max_digits=9, decimal_places=7, null=True, blank=True)
@@ -40,7 +40,7 @@ class Place(TimeStampedModel):
                 max_digits=9, decimal_places=7, null=True, blank=True)
 
     def __str__(self):
-        return self.council
+        return self.name
 
 class Event(TimeStampedModel):
 
