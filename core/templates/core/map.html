@@ -4,14 +4,13 @@
 
 
 
+
 {% block scripts %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCKiIqCdZGrVxx06LSbe7uG3zXOq1Cz5k&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap" async defer></script>
 <script>
 var map;
 var i =0;
-var latd = 'input#id_latitude.form-control';
-var long = 'input#id_longitude.form-control';
-var name = 'input#id_name.form-control';
+
 
 
 function initMap() {
@@ -20,7 +19,6 @@ function initMap() {
     zoom: 11,
     });
 
-
     var marker = new google.maps.Marker({
         position: {lat: 42.4443161, lng: -8.7840634},
         map: map,
@@ -28,52 +26,28 @@ function initMap() {
         
     });
 
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5149919, lng: -8.8183807},
-        map: map,
-        title: 'Concello de Cambados'
+    var contentString = 
+
+'prueba\
+<div id="content">\
+      <div id="siteNotice">\
+      </div>\
+      {% for event in events %}\
+      <h1 id="firstHeading" class="firstHeading">MEAÑO</h1>\
+      <div id="bodyContent">\
+      <p>Próximos eventos:</p>\
+  {{ event.description }}\
+  {% endfor %}\
+      </div>\
+      </div>\
+      ';
+
+    var infowindow = new google.maps.InfoWindow({
+    content: contentString
     });
 
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5134679, lng: -8.7897352},
-        map: map,
-        title: 'Concello de Ribadumia'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5183947, lng: -8.7058767},
-        map: map,
-        title: 'Concello de Meis'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.4018026, lng: -8.8122816},
-        map: map,
-        title: 'Concello de Sanxenxo'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.4955412, lng: -8.8659037},
-        map: map,
-        title: 'Concello de O Grove'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5972951, lng: -8.7657518},
-        map: map,
-        title: 'Concello de Vilagarcía de Arousa'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5643528, lng: -8.8308185},
-        map: map,
-        title: 'Concello de Vilanova de Arousa'
-    });
-
-    var marker = new google.maps.Marker({
-        position: {lat: 42.5608457, lng: -8.8881973},
-        map: map,
-        title: 'Concello da Illa de Arousa'
+    marker.addListener('click', function() {
+    infowindow.open(map, marker);
     });
 
 }
@@ -83,14 +57,7 @@ function initMap() {
 
 {% endblock %}
 
-<!-- {% for event in events %}
-
-<p>{{ event.place.latitude }}</p>
-<p>{{ event.place.longitude }}</p>
-
-{% endfor %} -->
-
 {% block content %}
-    <div id ="map"> 
-    </div> 
+    <div id ="map"> </div> 
+
 {% endblock %}

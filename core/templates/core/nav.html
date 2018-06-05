@@ -8,7 +8,7 @@
 
         <p>
             <a class="navbar-brand" href="/">
-                <span class="glyphicon glyphicon-home"></span> {% if user.is_authenticated %} Hola, {{ user.get_username }} {% endif %}</a>
+                <span class="glyphicon glyphicon-home"></span> {% if user.is_authenticated %} Hola, {{ user.get_username }}  {% else %} LECER NO SALNÉS {% endif %}</a>
         </p>
 
     </div>

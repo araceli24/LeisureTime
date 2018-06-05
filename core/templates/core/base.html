@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+
 <html>
 
 <head>
@@ -22,15 +23,15 @@
     crossorigin="anonymous"></script>
 
   {% block scripts %} {% endblock %}
+  
 </head>
 
 <body>
+ 
     {% include 'core/nav.html' %}
+    {% include 'core/jumbotron.html' %}
+
   
-  <div class="jumbotron">
-    <h1>Lecer no Salnés</h1>
-    <p><b>Eventos e actividades da comarca </b></p>
-  </div>
   <div class="page-content container text-justify">
  
     {% block content %} {% endblock %}

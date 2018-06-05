@@ -112,9 +112,22 @@ class Login(LoginView):
        
         return context
 
-class Map(TemplateView):
-    template_name = 'core/map.html'
 
+class Map(ListView):
+
+    model = Event
+    template_name = "core/map.html"
+
+    
+
+    def get_queryset(self):
+        now= timezone.now()
+        queryset = Event.objects.all().select_related('place').filter(date__gte=now).order_by('date')
+        category = self.request.GET.get('category')
+        if category != None: 
+            queryset = queryset.filter(category=category)
+                
+        return queryset
 
 def handler404(request):
     return render(request, "404.html", status=404)
