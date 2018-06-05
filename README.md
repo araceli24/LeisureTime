@@ -4,5 +4,5 @@
 Gestor de Eventos y actividades de O salnés
 
 ```
-# HEROKU
+# Heroku
 https://leisuretime.herokuapp.com/
