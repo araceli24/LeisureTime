@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'versatileimagefield',
     'debug_toolbar',
     'django_filters',
+    'bootstrap4',
   
     
 ]

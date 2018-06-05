@@ -40,7 +40,7 @@ class Place(TimeStampedModel):
                 max_digits=9, decimal_places=7, null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return self.council
 
 class Event(TimeStampedModel):
 

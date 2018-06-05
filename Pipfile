@@ -14,7 +14,7 @@ whitenoise = "*"
 django-debug-toolbar = "*"
 django-bootstrap-pagination = "*"
 django-versatileimagefield = "*"
-
+"django-bootstrap4" = "*"
 
 [dev-packages]
 coverage = "*"

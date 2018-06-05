@@ -1,15 +1,17 @@
 {% extends 'core/base.html' %}
-
+{% load bootstrap4 %}
 {% block content %}
 <div class="card col-12">
     <h2>Nueva Ubicación</h2>
     <form method="POST" onsubmit="return checkForm(this);" class="event-form">{% csrf_token %}
-        {{ form.as_p}}
+
+        {% bootstrap_form form %}
+    {% buttons %}
+     
+    
         <button type="submit" id="myButton" class="save btn btn-outline-info">GUARDAR</button>
-        <button type="reset" class="reset btn btn-default">CANCELAR</button>
-       <br><br>
-        <a href="/"> Volver </a>
-       
+        <a href="/" class="btn btn-default">CANCELAR</a>
+        {% endbuttons %}
     </form>
 
     <script >
