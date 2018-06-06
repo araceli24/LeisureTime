@@ -103,7 +103,7 @@ span.glyphicon.glyphicon-menu-right{
 div.list h4{
 
   color:rgb(12, 111, 122);
-  border:none;
+
 }
 
 footer span.glyphicon{
@@ -123,7 +123,11 @@ padding-right: 10px;
 padding-left: 10px;
 padding-top: 10px;
 padding-bottom: 20px;
+
+
 }
+
+
 
 .card:hover{
   transform: scale(1.01);
@@ -132,6 +136,8 @@ padding-bottom: 20px;
 #card-new:hover{
   transform: none;
 }
+
+
 
 #card-place:hover{
   transform: none;
@@ -164,6 +170,8 @@ li{
   float: bottom;
 }
 
+
+
 div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card{
   box-shadow: 0px 0px 1px 1px #999;
 }
@@ -177,6 +185,10 @@ div.card-footer{
   border-top: 0px;
 }
 
+.card-body{
+  padding: none;
+  border:none;
+}
 
 h3{
   text-align: center;
@@ -245,7 +257,7 @@ span.label.label-info{
 }
 
 img{
-  box-shadow: 0px 0px 0px #999;
+  box-shadow: 1px 1px 1px #999;
 }
 
 #options{
@@ -272,11 +284,35 @@ line-height: 15px;
 
   list-style: none;
 
-  padding: 10px 0 10px;
+  padding: 20px 0 20px;
 
   position: relative;
 
 }
+
+
+
+.timeline:before {
+
+  top: 0;
+
+  bottom: 0;
+
+  position: absolute;
+
+  content: " ";
+
+  width: 3px;
+
+  background-color: #eeeeee;
+
+  left: 50%;
+
+  margin-left: -1.5px;
+
+}
+
+
 
 .timeline > li {
 
@@ -285,6 +321,47 @@ line-height: 15px;
   position: relative;
 
 }
+
+
+
+.timeline > li:before,
+
+.timeline > li:after {
+
+  content: " ";
+
+  display: table;
+
+}
+
+
+
+.timeline > li:after {
+
+  clear: both;
+
+}
+
+
+
+.timeline > li:before,
+
+.timeline > li:after {
+
+  content: " ";
+
+  display: table;
+
+}
+
+
+
+.timeline > li:after {
+
+  clear: both;
+
+}
+
 
 
 .timeline > li > .timeline-panel {
@@ -297,13 +374,61 @@ line-height: 15px;
 
   border-radius: 2px;
 
-  padding: 10px;
+  padding: 20px;
 
   position: relative;
 
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+
+}
+
+
+
+.timeline > li > .timeline-panel:before {
+
+  position: absolute;
+
+  top: 15px;
+
+  right: -15px;
+
+  display: inline-block;
+
+  border-top: 15px solid transparent;
+
+  border-left: 15px solid #ccc;
+
+  border-right: 0 solid #ccc;
+
+  border-bottom: 15px solid transparent;
+
+  content: " ";
+
+}
+
+
+
+.timeline > li > .timeline-panel:after {
+
+  position: absolute;
+
+  top: 16px;
+
+  right: -14px;
+
+  display: inline-block;
+
+  border-top: 14px solid transparent;
+
+  border-left: 14px solid #fff;
+
+  border-right: 0 solid #fff;
+
+  border-bottom: 14px solid transparent;
+
+  content: " ";
 
 }
 
@@ -329,7 +454,7 @@ line-height: 15px;
 
   left: 50%;
 
-
+  margin-left: -60px;
 
   background-color: white;
 
