@@ -4,7 +4,6 @@
   function initMap() {
 
     var latlng = new google.maps.LatLng(42.5245603, -8.8171341);
-
     var mapOptions = {
       zoom: 11,
       
@@ -22,6 +21,16 @@
     setMarkers(map, events);
   }
 
+  // var iconMarker = {
+  //   path: 'M7.5,14C-0.3,7.8,0,5.6,0,3.8C0,2.1,1.4,0,3.7,0C6,0,7.4,2.5,7.4,2.5S8.9,0,11.2,0C13.5,0,15,2.1,15,3.8 C15,5.6,15.2,7.8,7.5,14z',
+  //   fillColor: 'red',
+  //   fillOpacity: 1,
+  //   scale: 1,
+  //   strokeColor: 'black',
+  //   strokeWeight: 1
+  // };
+ 
+
   var events = [
     ['Carreira Popular', 42.4443161, -8.7840634, 'Carreira popular de Meaño'],
     ['Concerto Leiva', 42.4018026, -8.8122816, 'Concerto de Leiva en Sanxenxo'],
@@ -33,9 +42,13 @@
   function setMarkers(map, events) {
 
     for (var i = 0; i < events.length; i++) {
+      var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
       var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
       var marker = new google.maps.Marker({
         // draggable: true,
+        
+        icon: image,
         animation: google.maps.Animation.DROP,
         position: myLatLng,
         map: map,
