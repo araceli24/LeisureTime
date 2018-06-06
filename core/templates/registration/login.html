@@ -1,15 +1,22 @@
-<h1><b><a href="/">LeisureTime Salnés</a> </b></h1> 
+<h1><b><a href="/">LECER NO SALNÉS</a> </b></h1> 
 
 
- <div class="container">
+<div class="col-12 col-xs-12 col-md-6 col-lg-4">
         <form method="post">
           {% csrf_token %}
           {{ form.as_p }}
           <button name="btnSubmit" type="submit">Login</button>
         </form>
-        </div>
+       
         
         <style>
+
+            div {
+                margin-left: auto;
+                margin-right: auto;
+                padding-left: 10%;
+                padding-right: 10%;
+            }
         
         form {
             border: none;
@@ -44,14 +51,18 @@
             opacity: 0.8;
         }
         
-        .container {
-            padding: 30px;
-            width: 50%;
-            text-align: center;
-            margin: auto;
-        }
+       
         a{
             color: #30BCCC;
             text-align: center;
+            padding: 30%;
         }
+
+        H1{
+  color:#30BCCC;
+
+  font-size: unset;
+  text-align: center;
+} 
         </style>
+     </div>

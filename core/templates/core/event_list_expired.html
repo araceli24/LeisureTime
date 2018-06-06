@@ -2,8 +2,9 @@
 
 {% block content %}
 
-<div class="container-expired">
+<div class="container">
     <div class="page-header">
+        <div class="col-12">
       <h1 id="timeline">Te has perdido...</h1>
     </div>
     {% for event in events %}
@@ -11,35 +12,24 @@
 
     <ul class="timeline">
       <li class="timeline">
-        <div class="timeline-badge"><a href="{% url 'event_detail' pk=event.pk  %}"><small>{{ event.date }}</small></a></div>
-        <div class="timeline-panel">
+        <div class="timeline-badge"><p>{{ event.date }}</p></div>
+        <div class="timeline-panel"><a href="{% url 'event_detail' pk=event.pk  %}">
           <div class="timeline-heading">
-            <h4 class="timeline-title">{{ event.title }}</h4>
+            <h4 class="timeline-title">{{ event.title }}</h4>   </a>
             
           </div>
           <div class="timeline-body">
-            <p>{{ event.description|truncatechars:250 }}</p>
+            <p>{{ event.description|truncatechars:100 }}</p>
             
             <p><small class="text-muted"><i class="glyphicon glyphicon-map-marker"></i> {{ event.place }}</small></p>
+       
           </div>
         </div>
       </li>
 
-      <!-- <li class="timeline-inverted">
-          <div class="timeline-badge"><a href="{% url 'event_detail' pk=event.pk  %}"><small>{{ event.date }}</small></a></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">{{ event.title }}</h4>
-              <p><small class="text-muted"><i class="glyphicon glyphicon-time"></i> {{ event.date }}</small></p>
-            </div>
-            <div class="timeline-body">
-              <p>{{ event.description|truncatechars:250 }}</p>
-            </div>
-          </div>
-        </li> -->
-
-    </ul>
+        </ul>
 
   {% endfor %}
+  </div>
   </div>
   {% endblock %}
