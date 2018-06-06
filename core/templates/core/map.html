@@ -1,63 +1,62 @@
-{% extends 'core/base.html' %}
-
-{% load static from staticfiles %}
-
-
-
-
-{% block scripts %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap" async defer></script>
+{% extends 'core/base.html' %} {% load static from staticfiles %} {% block scripts %}
 <script>
-var map;
-var i =0;
 
+  function initMap() {
 
+    var latlng = new google.maps.LatLng(42.5245603, -8.8171341);
 
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 42.5245603, lng: -8.8171341 },
-    zoom: 11,
-    });
+    var mapOptions = {
+      zoom: 11,
+      
+      center: latlng,
+      mapTypeControl: true,
+      scaleControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          mapTypeIds: ['roadmap', 'terrain']
+      }
 
-    var marker = new google.maps.Marker({
-        position: {lat: 42.4443161, lng: -8.7840634},
+    }
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    setMarkers(map, events);
+  }
+
+  var events = [
+    ['Carreira Popular', 42.4443161, -8.7840634, 'Carreira popular con saída en concello de Meaño'],
+    ['Concerto Leiva', 42.4018026, -8.8122816, 'Concerto espectacular do gran compositor español Leiva'],
+    ['Cine na rúa', 42.5149919, -8.8183807, 'Xornada especial do cine'],
+
+  ];
+
+  var infowindow;
+  function setMarkers(map, events) {
+
+    for (var i = 0; i < events.length; i++) {
+      var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
+      var marker = new google.maps.Marker({
+        // draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: myLatLng,
         map: map,
-        title: 'Concello de Meaño'
-        
-    });
+        title: events[i][0],
+      });
 
-    var contentString = 
-
-'prueba\
-<div id="content">\
-      <div id="siteNotice">\
-      </div>\
-      {% for event in events %}\
-      <h1 id="firstHeading" class="firstHeading">MEAÑO</h1>\
-      <div id="bodyContent">\
-      <p>Próximos eventos:</p>\
-  {{ event.description }}\
-  {% endfor %}\
-      </div>\
-      </div>\
-      ';
-
-    var infowindow = new google.maps.InfoWindow({
-    content: contentString
-    });
-
-    marker.addListener('click', function() {
-    infowindow.open(map, marker);
-    });
-
-}
-
+      (function (i, marker) {
+        google.maps.event.addListener(marker, 'click', function () {
+          if (!infowindow) {
+            infowindow = new google.maps.InfoWindow();
+          }
+          infowindow.setContent(events[i][3]);
+          infowindow.open(map, marker);
+        });
+      })(i, marker);
+    }
+  };
+  initMap();
 
 </script>
 
-{% endblock %}
-
-{% block content %}
-    <div id ="map"> </div> 
-
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap" async
+  defer></script> {% endblock %} {% block content %}
+<div id="map"> </div>
 {% endblock %}
