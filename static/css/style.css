@@ -293,12 +293,27 @@ img{
 
 }
 
+div.timeline-heading h4.timeline-title{
+
+font-size: 1vmin 4vmax;
+
+}
+
+
+
 div.timeline-badge a{
 
 color: steelblue;
 padding-left: 10%;
 line-height: 15px;
 }
+
+div.timeline-badge p{
+
+  color: dimgray;
+  background-color: whitesmoke;
+}
+
 .timeline {
 
   list-style: none;
@@ -393,7 +408,7 @@ line-height: 15px;
 
   border-radius: 2px;
 
-  padding: 20px;
+  padding: 10px;
 
   position: relative;
 
@@ -451,13 +466,11 @@ line-height: 15px;
 
 }
 
-
-
 .timeline > li > .timeline-badge {
 
   color: #fff;
 
-  width: 120px;
+
 
   height: 30px;
 
@@ -496,7 +509,7 @@ line-height: 15px;
 
 .timeline-body > ul {
 
-  margin-bottom: 0;
+  margin: 2%;
 
 }
 
@@ -508,6 +521,8 @@ line-height: 15px;
 
 }
 
-.container-expired {
-  width: auto;
+div ul li.timeline{
+
+padding: 50px 0px 20px;
+
 }
