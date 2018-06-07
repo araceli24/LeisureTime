@@ -89,6 +89,7 @@ div.timeline-heading h4.timeline-title {
 .glyphicon{
 
   color: rgb(12, 111, 122);
+  size: 15px;
   padding-right: 5px;
 }
 
@@ -97,8 +98,6 @@ span.glyphicon.glyphicon-menu-right{
   color: white;
 
 }
-
-
 
 div.list h4{
 
@@ -119,11 +118,10 @@ footer span.glyphicon{
 } 
 
 div.card.col-12, .col-lg-4, .col-md-6{
-padding-right: 10px;
-padding-left: 10px;
-padding-top: 10px;
+padding-right: 18px;
+padding-left: 18px;
+padding-top: 20px;
 padding-bottom: 20px;
-
 
 }
 
@@ -173,7 +171,7 @@ li{
 
 
 div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card{
-  box-shadow: 0px 0px 1px 1px #999;
+  box-shadow: 0px 2px 2px #ccc;
 }
 
 .card-footer{
@@ -257,7 +255,7 @@ span.label.label-info{
 }
 
 img{
-  box-shadow: 1px 1px 1px #999;
+  box-shadow: 1px 1px 1px #fff;
 }
 
 #options{
@@ -270,8 +268,8 @@ img{
 
 .btn-info {
   color: #fff;
-  background-color: rgb(12, 111, 122);
-  border-color: rgb(12, 111, 122);
+  background-color: lightgrey;
+  border-color: white;
 
 }
 
@@ -497,5 +495,5 @@ line-height: 15px;
 }
 
 .container-expired {
-  width: 750px;
+  width: auto;
 }
