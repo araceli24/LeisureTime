@@ -14,6 +14,7 @@ body{
 footer {
     background-color: #f2f2f2;
     padding: 25px;
+    color: dimgray;
   }
 
 
@@ -117,6 +118,13 @@ footer span.glyphicon{
 
 } 
 
+.pagination > .active > a, .pagination > .active > a:focus, .pagination > .active > a:hover, .pagination > .active > span, .pagination > .active > span:focus, .pagination > .active > span:hover{
+
+background-color: rgb(12, 111, 122);
+border-color: rgb(12, 111, 122);
+
+}
+
 div.card.col-12, .col-lg-4, .col-md-6{
 padding-right: 18px;
 padding-left: 18px;
@@ -183,6 +191,7 @@ div.card-footer{
   border-top: 0px;
 }
 
+
 .card-body{
   padding: none;
   border:none;
@@ -194,12 +203,17 @@ h3{
 }
 
 p{
-  color:dimgray;
+  
   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-style: italic;
   font-size: medium;
   text-align: center;
 } 
+
+div.card-footer small p {
+
+  color: dimgray;
+}
 
 form.event-form p{
   text-align: justify;
