@@ -88,8 +88,8 @@ div.timeline-heading h4.timeline-title {
 
 .glyphicon{
 
-  color: #30BCCC;
-  padding-right: 2px;
+  color: rgb(12, 111, 122);
+  padding-right: 5px;
 }
 
 span.glyphicon.glyphicon-menu-right{
@@ -265,6 +265,13 @@ img{
   margin-top:15%;
   display: block;
   text-align: center;
+
+}
+
+.btn-info {
+  color: #fff;
+  background-color: rgb(12, 111, 122);
+  border-color: rgb(12, 111, 122);
 
 }
 
