@@ -21,13 +21,13 @@
                -->
                 
                 <div class="card-body">
+                        {% if event.price %}
+                        <span style="float: right;" class="label label-success">{{ event.price }} €</span>
+    
+                        {% endif %}
                 <h4 class="card-title">
                     <b>{{ event.title|upper}}</b>
-                    {% if event.price %}
-
-                    <span style="float: right;" class="label label-success">{{ event.price }} €</span>
-
-                    {% endif %}</h4>
+                   </h4>
                 <p class="card-text multiline-ellipsis" style="text-align: justify">{{ event.description }}</p>
                 <a href="{% url 'event_detail' pk=event.pk  %}">
                     <button type="button" class="btn btn-info" style="float: right;">

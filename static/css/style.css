@@ -23,6 +23,13 @@ div.page-content.container.text-justify form p label {
 
 }
 
+#search div.card.border-secondary.mb-3 div.card-header{
+
+  background-color: rgb(12, 111, 122);
+  color: #fff;
+
+}
+
 .jumbotron{
    
   color: #fff;
@@ -48,9 +55,9 @@ div.page-content.container.text-justify form p label {
 
   .jumbotron p{
 
-  
+    font-family: 'Kaushan Script', cursive;
   color: white;
-  text-shadow: 3px 3px 3px black;
+  text-shadow:  1.2px 1.2px black;
   
   }
   .jumbotron h1{
@@ -73,7 +80,8 @@ div.timeline-badge a small{
  
 
 div.timeline-heading h4.timeline-title {
-  color: rgb(12, 111, 122);
+  background:rgb(12, 111, 122); 
+  color:#fff;
   text-shadow: 1px 1px 1px #999;
   text-align: center;
 }
@@ -106,8 +114,7 @@ span.glyphicon.glyphicon-menu-right{
 div.list h4{
 
   color:rgb(12, 111, 122);
-  
-  /* margin-bottom: 5%; */
+
 }
 
 footer span.glyphicon{
@@ -150,6 +157,7 @@ padding-bottom: 20px;
 }
 
 #card-place h2{
+
 
   color: rgb(12, 111, 122);
 }
@@ -307,9 +315,18 @@ div.list div.title h4 {
   margin-bottom: 3%;
 }
 
+
+
+h2#expired{
+
+  font-family: 'Kaushan Script', cursive;
+color: rgb(12, 111, 122);
+
+}
+
 div.timeline-heading h4.timeline-title{
 
-font-size: 1vmin 4vmax;
+ font-size: medium; 
 
 }
 
@@ -330,7 +347,6 @@ div.timeline-badge p{
 
   list-style: none;
 
-  padding: 20px 0 20px;
 
   position: relative;
 
@@ -350,7 +366,7 @@ div.timeline-badge p{
 
   background-color: #eeeeee;
 
-  left: 50%;
+
 
   margin-left: -1.5px;
 
@@ -400,7 +416,7 @@ div.timeline-badge p{
 
 .timeline > li > .timeline-panel {
 
-  width: 42.5%;
+  width: 30%;
 
   float: left;
 
@@ -408,9 +424,11 @@ div.timeline-badge p{
 
   border-radius: 2px;
 
-  padding: 10px;
+  padding-top: 3px;
+  padding-right: 3px;
+  padding-left: 3px;
 
-  position: relative;
+
 
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
 
@@ -437,7 +455,7 @@ div.timeline-badge p{
 
   border-bottom: 15px solid transparent;
 
-  content: " ";
+
 
 }
 
@@ -446,7 +464,7 @@ div.timeline-badge p{
 
   position: absolute;
 
-  top: 16px;
+ 
 
   right: -14px;
 
@@ -480,7 +498,7 @@ div.timeline-badge p{
 
   top: 16px;
 
-  left: 50%;
+
 
   margin-left: -60px;
 
@@ -498,15 +516,6 @@ div.timeline-badge p{
 }
 
 
-.timeline-body > p,
-
-.timeline-body > ul {
-
-  margin: 2%;
-
-}
-
-
 .timeline-body > p + p {
 
   margin-top: 5px;
@@ -515,6 +524,6 @@ div.timeline-badge p{
 
 div ul li.timeline{
 
-padding: 50px 0px 20px;
+padding: 50px 10px 20px;
 
 }
