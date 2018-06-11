@@ -62,14 +62,18 @@ div.page-content.container.text-justify form p label {
   .jumbotron p{
 
     font-family: 'Kaushan Script', cursive;
-  color: white;
-  text-shadow:  1.2px 1.2px black;
+
+
+  
   
   }
   .jumbotron h1{
 
     font-family: 'Kaushan Script', cursive;
     text-align: center;
+    color: rgb(12, 111, 122);
+    text-shadow:  1.2px 1.2px white;
+    font-size: 34px;
   }
 
 
@@ -302,18 +306,18 @@ div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-t
  
 }
 
-div.card.border-secondary.mb-3 div.card-body {
+/* div.card.border-secondary.mb-3 div.card-body {
 
-/* background-image: url("https://picsum.photos/300/200/?random={{event.pk}}"); */
+ background-image: url("https://picsum.photos/300/200/?random={{event.pk}}"); 
 
 }
-
+ */
 
 
 div.list div.title h4 {
 
   font-family: 'Kaushan Script', cursive;
-  font-size: 40px;
+  font-size: 30px;
  
  
 }
@@ -441,17 +445,11 @@ div.timeline-badge p{
 
 .timeline > li > .timeline-panel {
 
-  width: 30%;
-
-  float: left;
-
+  width: 100%;
+  margin: 2rem;
+  padding: 2rem;
   border: 1px solid #d4d4d4;
-
   border-radius: 2px;
-
-  padding-top: 3px;
-  padding-right: 3px;
-  padding-left: 3px;
 
 
 
