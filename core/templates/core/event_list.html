@@ -4,10 +4,12 @@
 {% block content %}
 
 <div class="list">
+    <div class="title" id="centered">
     <h4>
-        <b>PRÓXIMOS EVENTOS</b>
+    Próximos eventos
     </h4>
-    <hr> {% for event in events %}
+    </div>
+    {% for event in events %}
 
     <div class="col-12 col-xs-12 col-md-6 col-lg-4">
         <div class="card">
@@ -20,7 +22,7 @@
                 
                 <div class="card-body">
                 <h4 class="card-title">
-                    <b>{{ event.title|upper }}</b>
+                    <b>{{ event.title|upper}}</b>
                     {% if event.price %}
 
                     <span style="float: right;" class="label label-success">{{ event.price }} €</span>
@@ -50,5 +52,8 @@
     <div class="col-12 pagination">
         {% include 'core/_pagination.html' %}
     </div>
+    <div class="col-12">
+    {% include 'core/map.html' %}
+</div>
 </div>
 {% endblock %}

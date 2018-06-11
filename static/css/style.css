@@ -5,8 +5,6 @@ body{
 
 }
 
-
-
 .page-content{
   flex-grow: 1;
 }
@@ -15,12 +13,13 @@ footer {
     background-color: #f2f2f2;
     padding: 25px;
     color: dimgray;
+
   }
 
 
 div.page-content.container.text-justify form p label {
 
-  padding-top: 25px;
+  padding-top: 3%;
 
 }
 
@@ -28,15 +27,17 @@ div.page-content.container.text-justify form p label {
    
   color: #fff;
   background:url("../img/background_nav.jpg") no-repeat;
-  margin-bottom: 5px;
-  min-height: 35%;
+  margin-top: 20px;
+  min-height: 36%;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
   text-shadow: 2px 2px 2px black;
   color: white;
+  
 
+  margin-bottom: 3%;
   }
 
   div.navbar-header p a.navbar-brand {
@@ -47,26 +48,22 @@ div.page-content.container.text-justify form p label {
 
   .jumbotron p{
 
+  
   color: white;
   text-shadow: 3px 3px 3px black;
   
   }
   .jumbotron h1{
+
+    font-family: 'Kaushan Script', cursive;
     text-align: center;
   }
 
-hr{
-  color:rgb(12, 111, 122);
-  background-color: rgb(12, 111, 122);
-  height: 1px;
 
-}
   
 div.page-header h1#timeline {
 
-
     color: rgb(12, 111, 122);
-
 
 }
 
@@ -81,11 +78,17 @@ div.timeline-heading h4.timeline-title {
   text-align: center;
 }
 
-.navbar{
-    margin-bottom: 0%;
-    margin-block-end: 0%;
-    margin-top: 0%;
+div.topnav{
+  z-index: 9999;
+  overflow: hidden;
+  background: #555;
+  color: #f1f1f1;
+  width: 100%;
+  position: fixed;
+  top: 0;
+ 
 }
+
 
 .glyphicon{
 
@@ -103,7 +106,8 @@ span.glyphicon.glyphicon-menu-right{
 div.list h4{
 
   color:rgb(12, 111, 122);
-
+  
+  /* margin-bottom: 5%; */
 }
 
 footer span.glyphicon{
@@ -133,8 +137,6 @@ padding-bottom: 20px;
 
 }
 
-
-
 .card:hover{
   transform: scale(1.01);
 }
@@ -142,8 +144,6 @@ padding-bottom: 20px;
 #card-new:hover{
   transform: none;
 }
-
-
 
 #card-place:hover{
   transform: none;
@@ -163,7 +163,6 @@ a{
   text-align: justify;
 }
 
-
 h7{
 
   text-align: center;
@@ -175,8 +174,6 @@ li{
   text-align: left;
   float: bottom;
 }
-
-
 
 div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card{
   box-shadow: 0px 2px 2px #ccc;
@@ -210,6 +207,10 @@ p{
   text-align: center;
 } 
 
+#centered{
+  text-align: center;
+}
+
 div.card-footer small p {
 
   color: dimgray;
@@ -238,7 +239,6 @@ select[multiple], select[size] {
 select.form-control:not([size]):not([multiple]){
 
     height: 4%;
-
 }
 
 form.event-form p textarea#id_description{
@@ -274,12 +274,26 @@ img{
 
 #options{
 
-  margin-top:15%;
+  margin-top:auto;
   display: block;
   text-align: center;
 
 }
 
+div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-title b{
+  /* font-family: 'Annie Use Your Telescope', cursive;
+  font-size: 20px; */
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+ 
+}
+
+div.list div.title h4 {
+
+  font-family: 'Kaushan Script', cursive;
+  font-size: 40px;
+ 
+ 
+}
 .btn-info {
   color: #fff;
   background-color: lightgrey;
@@ -288,9 +302,9 @@ img{
 }
 
 #map {
-  height: 75%;
+  height: 50%;
   width: 100%;
-
+  margin-bottom: 3%;
 }
 
 div.timeline-heading h4.timeline-title{
@@ -298,8 +312,6 @@ div.timeline-heading h4.timeline-title{
 font-size: 1vmin 4vmax;
 
 }
-
-
 
 div.timeline-badge a{
 
@@ -324,8 +336,6 @@ div.timeline-badge p{
 
 }
 
-
-
 .timeline:before {
 
   top: 0;
@@ -346,17 +356,29 @@ div.timeline-badge p{
 
 }
 
-
-
 .timeline > li {
-
- 
 
   position: relative;
 
 }
 
 
+.timeline > li:before,
+
+.timeline > li:after {
+
+  content: " ";
+
+  display: table;
+
+}
+
+.timeline > li:after {
+
+  clear: both;
+
+}
+
 
 .timeline > li:before,
 
@@ -369,33 +391,11 @@ div.timeline-badge p{
 }
 
 
-
 .timeline > li:after {
 
   clear: both;
 
 }
-
-
-
-.timeline > li:before,
-
-.timeline > li:after {
-
-  content: " ";
-
-  display: table;
-
-}
-
-
-
-.timeline > li:after {
-
-  clear: both;
-
-}
-
 
 
 .timeline > li > .timeline-panel {
@@ -419,7 +419,6 @@ div.timeline-badge p{
 }
 
 
-
 .timeline > li > .timeline-panel:before {
 
   position: absolute;
@@ -441,7 +440,6 @@ div.timeline-badge p{
   content: " ";
 
 }
-
 
 
 .timeline > li > .timeline-panel:after {
@@ -470,8 +468,6 @@ div.timeline-badge p{
 
   color: #fff;
 
-
-
   height: 30px;
 
   line-height: 30px;
@@ -490,8 +486,6 @@ div.timeline-badge p{
 
   background-color: white;
 
-
-
 }
 
 
@@ -504,7 +498,6 @@ div.timeline-badge p{
 }
 
 
-
 .timeline-body > p,
 
 .timeline-body > ul {
@@ -512,7 +505,6 @@ div.timeline-badge p{
   margin: 2%;
 
 }
-
 
 
 .timeline-body > p + p {

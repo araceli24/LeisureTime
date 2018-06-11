@@ -58,10 +58,10 @@
 
 </div>
 
+<div class="row">
 <div class="col-12" id="options">
 
-    <a id="volver" href="/">
-        <span class="glyphicon glyphicon-menu-left"></span>Volver</a>
+  
 
     {% if user.is_authenticated %}
     <a href="{% url 'event_delete' pk=event.pk %}">
@@ -71,6 +71,9 @@
     {% endif %}
 
 </div>
+</div>
+
+
 
 </div>
 
