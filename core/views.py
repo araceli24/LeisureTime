@@ -25,10 +25,12 @@ from django.utils import timezone
 # Create your views here.
 
 class EventListView(ListView):
+    # FilterView
     model = Event
     template_name = "events/event_list.html"
     context_object_name= 'events'
     paginate_by=6
+    # filterset_class = EventFilter
     
     def get_queryset(self):
         now= timezone.now()
@@ -52,7 +54,7 @@ class EventListViewExpired(ListView):
 
 class  EventSearch(FilterView):
     model = Event
-    template_name = 'core/search.html'
+    template_name = "core/search.html"
     filterset_class = EventFilter
     context_object_name= 'events'
     

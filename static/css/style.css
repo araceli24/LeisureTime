@@ -30,6 +30,11 @@ div.page-content.container.text-justify form p label {
 
 }
 
+.input-group-addon{
+  padding: 0px;
+  line-height: normal;
+}
+
 .jumbotron{
    
   color: #fff;

@@ -1,4 +1,33 @@
-<div class="jumbotron">
+
+<div class="jumbotron text-center">
         <h1>Lecer no Salnés</h1>
         <p>Eventos e actividades da comarca </p>
+
+        
+
+
+        <form action="{% url 'search' %}"  method="get">
+
+              
+        <div class="col-md-6 col-md-offset-3" id="centered">
+                        <div class="input-group">
+                                <input type="text" name="title__icontains"  class="form-control" placeholder="Buscar..." id="id_title__icontains">
+                                <span class="input-group-addon ">
+                                <input type="submit" value="Buscar">
+                        </span>
+                               
+
+                        </div>
+                </div>
+        </form>
+
+
+        <!-- <form method="get">
+
+  {{ filter.form.as_p }}
+  <p>
+    <button type="submit">Buscar</button>
+  </p>
+</form> -->
+
 </div>
