@@ -35,7 +35,7 @@ div.page-content.container.text-justify form p label {
   color: #fff;
   background:url("../img/beach.jpg") no-repeat;
   margin-top: 20px;
-  min-height: 36%;
+  min-height: 50%;
   background-repeat: no-repeat;
   background-position: center;
   -webkit-background-size: cover;
@@ -44,11 +44,12 @@ div.page-content.container.text-justify form p label {
   color: white;
   
 
-  margin-bottom: 3%;
+  margin-bottom: 20px;
   }
 
   div.navbar-header p a.navbar-brand {
 
+    font-family: 'Kaushan Script', cursive;
     color:rgb(12, 111, 122);
 
   }
@@ -87,6 +88,7 @@ div.timeline-heading h4.timeline-title {
 }
 
 div.topnav{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   z-index: 9999;
   overflow: hidden;
   background: #555;
@@ -295,6 +297,14 @@ div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-t
  
 }
 
+div.card.border-secondary.mb-3 div.card-body {
+
+/* background-image: url("https://picsum.photos/300/200/?random={{event.pk}}"); */
+
+}
+
+
+
 div.list div.title h4 {
 
   font-family: 'Kaushan Script', cursive;
@@ -308,6 +318,20 @@ div.list div.title h4 {
   border-color: white;
 
 }
+.btn-info:focus {
+  color: #fff;
+  background-color: rgb(12, 111, 122);
+  border-color: white;
+
+}
+.btn-info:hover {
+  color: #fff;
+  background-color: rgb(12, 111, 122);
+  border-color: white;
+
+}
+
+
 
 #map {
   height: 50%;
@@ -315,12 +339,10 @@ div.list div.title h4 {
   margin-bottom: 3%;
 }
 
-
-
 h2#expired{
 
   font-family: 'Kaushan Script', cursive;
-color: rgb(12, 111, 122);
+  color: rgb(12, 111, 122);
 
 }
 
@@ -346,8 +368,6 @@ div.timeline-badge p{
 .timeline {
 
   list-style: none;
-
-
   position: relative;
 
 }

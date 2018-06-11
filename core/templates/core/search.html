@@ -11,8 +11,10 @@
 
 {% for event in filter.qs %}
 
-<div class="col-6 col-xs-6 col-md-3 col-lg-2" id="search">
-<div class="card border-secondary mb-3"  style="max-width: 18rem;">
+<div class="col-6 col-xs-6 col-md-3 col-lg-2 d-flex align-items-stretch" id="search">
+<div class="card border-secondary mb-3"  style="max-width: 18rem;" id="card-search">
+    <img class="card-img" src="https://picsum.photos/300/200/?random={{event.pk}}" alt="Card image"> 
+
   <div class="card-header">{{ event.date|date:"D d M" }}</div>
   <div class="card-body">
     <h4 class="card-title">
