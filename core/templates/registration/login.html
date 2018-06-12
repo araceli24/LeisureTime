@@ -1,168 +1,278 @@
+<div class="col-12">
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+            <div class="login">
+                <div class="form">
+
+                    <h2 id="login">
+                        <span class="fab fa-servicestack"></span>
+                        <br>
+                        <a href="/" id="login">Lecer no Salnés</a>
+
+                    </h2>
+
+                    <form method="post">
+                        {% csrf_token %} {{ form.as_p }}
+                        <button name="btn btn-lg btn-success btn-block" type="submit" id="myBtn">Login</button>
+                    </form>
 
 
-<div class="login">
-    <div class="form">
-    
-        <h2><a href="/">LECER NO SALNÉS</a></h2> 
-    
-    <form method="post">
-        {% csrf_token %} {{ form.as_p }}
-        <button name="btn btn-lg btn-success btn-block" type="submit" id="myBtn">Login</button>
-    </form>
+
+                    <style>
+                        #login {
+
+
+                            font-family: 'Kaushan Script', cursive;
+                            color: rgb(12, 111, 122);
+                            font-size: 2rem;
+
+                        }
+
+                        #login a {
+
+
+                            text-decoration: none;
+
+                        }
+
+
+                        .container {
+                            position: relative;
+                            z-index: 1;
+                            max-width: 300px;
+                            margin: 0 auto;
+                        }
+
+
+                        body {
+                            background: rgb(12, 111, 122);
+                            /* fallback for old browsers */
+                            background: -webkit-linear-gradient(right, rgb(12, 111, 122), #13a79a);
+                            background: -moz-linear-gradient(right, rgb(12, 111, 122), #13a79a);
+                            background: -o-linear-gradient(right, rgb(12, 111, 122), #13a79a);
+                            background: linear-gradient(to left, rgb(12, 111, 122), #13a79a);
+
+                            -webkit-font-smoothing: antialiased;
+                            -moz-osx-font-smoothing: grayscale;
+                        }
+
+                        .form {
+
+                            position: relative;
+                            z-index: 1;
+                            background: #FFFFFF;
+                            max-width: 360px;
+                            margin: 0 auto 100px;
+                            padding: 45px;
+                            text-align: center;
+                            box-shadow: rgba(0, 0, 0, 0.24);
+                            border: 1px;
+                            font-size: 20px;
+
+                            font-family: 'Kaushan Script', cursive;
+                            color: lightseagreen;
+
+                        }
+
+
+                        #myBtn {
+                            background-color: lightseagreen;
+                            color: #fff;
+                        }
+
+                        .login {
+
+
+                            width: 360px;
+                            padding: 8% 0 0;
+                            margin: auto;
+                        }
+
+                        .login h2 a {
+                            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+                            color: rgb(12, 111, 122);
+                            font-size: large;
+
+                            text-shadow: 2 2 10px rgba(0, 1, 1, 0.8);
+                            letter-spacing: 1px;
+
+                            padding: 5%;
+                            margin: 2%;
+                        }
+
+                        input {
+                            width: 100%;
+                            margin-bottom: 10px;
 
 
 
-    <style>
+                            padding: 10px;
+                            font-size: 13px;
+                            color: rgb(12, 111, 122);
+
+                            border: 1px #000000;
+
+
+                            -webkit-transition: box-shadow .5s ease;
+                            -moz-transition: box-shadow .5s ease;
+                            -o-transition: box-shadow .5s ease;
+                            -ms-transition: box-shadow .5s ease;
+                            transition: box-shadow .5s ease;
+                        }
+
+                        input:focus {
+                            box-shadow: inset 0 0px 10px rgba(80, 161, 185, 0.4), 0 1px 1px rgba(89, 163, 192, 0.2);
+                        }
 
 
 
-.container {
-  position: relative;
-  z-index: 1;
-  max-width: 300px;
-  margin: 0 auto;
-}
-.container:before, .container:after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.container .info {
-  margin: 50px auto;
-  text-align: center;
-}
-.container .info h1 {
-  margin: 0 0 15px;
-  padding: 0;
-  font-size: 36px;
-  font-weight: 300;
-  color: #1a1a1a;
-}
-.container .info span {
-  color: #4d4d4d;
-  font-size: 12px;
-}
-.container .info span a {
-  color: #000000;
-  text-decoration: none;
-}
-.container .info span .fa {
-  color: #EF3B3A;
-}
-body {
-  background: rgb(12, 111, 122); /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, rgb(12, 111, 122),#13a79a);
-  background: -moz-linear-gradient(right, rgb(12, 111, 122), #13a79a);
-  background: -o-linear-gradient(right, rgb(12, 111, 122), #13a79a);
-  background: linear-gradient(to left, rgb(12, 111, 122), #13a79a);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
-}
-        .form {
+                        input[type=text],
+                        input[type=password],
 
-            position: relative;
-  z-index: 1;
-  background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
-  text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-            /* width: 100%;
-            height: 100%;
-            font-family: 'Open Sans', sans-serif;
-            background: #638bca; */
-            /* background: -moz-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -moz-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -moz-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -webkit-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -webkit-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-            background: -o-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -o-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -o-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-            background: -ms-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), -ms-linear-gradient(top, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), -ms-linear-gradient(-45deg, #670d10 0%, #092756 100%);
-            background: -webkit-radial-gradient(0% 100%, ellipse cover, rgba(104, 128, 138, .4) 10%, rgba(138, 114, 76, 0) 40%), linear-gradient(to bottom, rgba(57, 173, 219, .25) 0%, rgba(42, 60, 87, .4) 100%), linear-gradient(135deg, #670d10 0%, #092756 100%);
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3E1D6D', endColorstr='#092756', GradientType=1); */
-        }
+                        button {
+                            background-color: #fff;
+                            color: #092756;
+                            padding: 14px 20px;
+                            margin: 8px 0;
+                            border: none;
+                            cursor: pointer;
+                            width: 100%;
+                            font-size: 20px;
+                            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+                        }
+
+                        button:hover {
+                            opacity: 0.8;
+                        }
 
 
-        #myBtn{
-            background-color: cornflowerblue;
-            color: #fff;
-        }
+                        /* ANIMATIONS */
 
-        .login {
+                        /* Simple CSS3 Fade-in-down Animation */
 
-            /* position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -150px 0 0 -150px;
-            width: 300px;
-            height: 300px; */
+                        .fadeInDown {
+                            -webkit-animation-name: fadeInDown;
+                            animation-name: fadeInDown;
+                            -webkit-animation-duration: 1s;
+                            animation-duration: 1s;
+                            -webkit-animation-fill-mode: both;
+                            animation-fill-mode: both;
+                        }
 
-            width: 360px;
-  padding: 8% 0 0;
-  margin: auto;
-        }
+                        @-webkit-keyframes fadeInDown {
+                            0% {
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, -100%, 0);
+                                transform: translate3d(0, -100%, 0);
+                            }
+                            100% {
+                                opacity: 1;
+                                -webkit-transform: none;
+                                transform: none;
+                            }
+                        }
 
-        .login h2 a{
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: rgb(12, 111, 122);
-            font-size: large;
+                        @keyframes fadeInDown {
+                            0% {
+                                opacity: 0;
+                                -webkit-transform: translate3d(0, -100%, 0);
+                                transform: translate3d(0, -100%, 0);
+                            }
+                            100% {
+                                opacity: 1;
+                                -webkit-transform: none;
+                                transform: none;
+                            }
+                        }
 
-            text-shadow: 2 2 10px rgba(0, 1, 1, 0.8);
-            letter-spacing: 1px;
-  
-            padding: 5%;
-            margin: 2%;
-        }
+                        /* Simple CSS3 Fade-in Animation */
 
-        input {
-            width: 100%;
-            margin-bottom: 10px;
-            background: rgba(0, 0, 0, 0.3);
-            border: none;
-            outline: none;
-            padding: 10px;
-            font-size: 13px;
-            color: #092756;
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 0, 0, 0.3);
-            border-radius: 4px;
-            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
-            -webkit-transition: box-shadow .5s ease;
-            -moz-transition: box-shadow .5s ease;
-            -o-transition: box-shadow .5s ease;
-            -ms-transition: box-shadow .5s ease;
-            transition: box-shadow .5s ease;
-        }
+                        @-webkit-keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
 
-        input:focus {
-            box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
-        }
+                        @-moz-keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        @keyframes fadeIn {
+                            from {
+                                opacity: 0;
+                            }
+                            to {
+                                opacity: 1;
+                            }
+                        }
+
+                        .fadeIn {
+                            opacity: 0;
+                            -webkit-animation: fadeIn ease-in 1;
+                            -moz-animation: fadeIn ease-in 1;
+                            animation: fadeIn ease-in 1;
+
+                            -webkit-animation-fill-mode: forwards;
+                            -moz-animation-fill-mode: forwards;
+                            animation-fill-mode: forwards;
+
+                            -webkit-animation-duration: 1s;
+                            -moz-animation-duration: 1s;
+                            animation-duration: 1s;
+                        }
+
+                        .fadeIn.first {
+                            -webkit-animation-delay: 0.4s;
+                            -moz-animation-delay: 0.4s;
+                            animation-delay: 0.4s;
+                        }
+
+                        .fadeIn.second {
+                            -webkit-animation-delay: 0.6s;
+                            -moz-animation-delay: 0.6s;
+                            animation-delay: 0.6s;
+                        }
+
+                        .fadeIn.third {
+                            -webkit-animation-delay: 0.8s;
+                            -moz-animation-delay: 0.8s;
+                            animation-delay: 0.8s;
+                        }
+
+                        .fadeIn.fourth {
+                            -webkit-animation-delay: 1s;
+                            -moz-animation-delay: 1s;
+                            animation-delay: 1s;
+                        }
 
 
-        form {
-            border: none;
-       
-            margin: auto;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
 
-        input[type=text],
-        input[type=password],
 
-        button {
-            background-color: #fff;
-            color: #092756;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            font-size: 20px;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
 
-        button:hover {
-            opacity: 0.8;
-        }
-    </style>
-</div>
+                        /* OTHERS */
+
+                        *:focus {
+                            outline: none;
+                        }
+
+                        #icon {
+                            width: 60%;
+                        }
+                    </style>
+                    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+                        crossorigin="anonymous">
+                    <link href="https://fonts.googleapis.com/css?family=Cookie|Kaushan+Script|Lobster+Two|Pacifico|Satisfy" rel="stylesheet">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

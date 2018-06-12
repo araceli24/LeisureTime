@@ -212,12 +212,22 @@ padding-bottom: 20px;
 #card-place h2{
 
 
+  font-family: 'Kaushan Script', cursive;
   color: rgb(12, 111, 122);
 }
 
 #card-new h2{
+
+   font-family: 'Kaushan Script', cursive;
   color: rgb(12, 111, 122);
 }
+
+/* #myButton{
+
+color: #555;
+
+
+} */
 
 a{
   color: dimgray;
@@ -337,8 +347,23 @@ img{
 
   margin-top:auto;
   display: block;
-  text-align: center;
+  text-align: left;
+  float: left;
 
+}
+
+#titledetail{
+  font-family: 'Kaushan Script', cursive;
+  color: rgb(12, 111, 122);
+}
+
+#fonttitle{
+  font-family: 'Kaushan Script', cursive;
+  color: rgb(12, 111, 122);
+}
+
+#descriptiondetail{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-title b{
