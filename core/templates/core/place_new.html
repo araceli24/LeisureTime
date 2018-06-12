@@ -12,8 +12,12 @@
         <button type="submit" id="myButton" class="save btn btn-outline-info">GUARDAR</button>
         <a href="/" class="btn btn-default">CANCELAR</a>
         {% endbuttons %}
-    </form>
 
+       
+    </form>
+    <div class="col-12">
+        {% include 'core/map_coords.html' %}
+    </div>
     <script >
             function checkForm(form)
                 {
