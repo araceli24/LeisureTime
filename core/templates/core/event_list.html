@@ -1,30 +1,33 @@
-{% extends 'core/base.html' %} {% block content %}
+
+{% extends 'core/base.html' %} 
+
+{% block content %}
+
 <div class="list">
+    <div class="title" id="centered">
     <h4>
-        <b>PRÓXIMOS EVENTOS</b>
+    Próximos eventos
     </h4>
-    <hr> {% for event in events %}
+    </div>
+    {% for event in events %}
 
-    <div class="card col-12 col-xs-12 col-md-6 col-lg-4">
-
-        <a href="{% url 'event_detail' pk=event.pk  %}">
-            <div class="card-body">
-
-                <a href="/?category={{ event.category }}">
+    <div class="col-12 col-xs-12 col-md-6 col-lg-4">
+        <div class="card">
+                <img class="card-img-top" src="https://picsum.photos/300/200/?random={{event.pk}}" alt="Card image"> 
+           
+                <!-- <a href="/?category={{ event.category }}">
                     <span class="label label-info " style="float: left;">{{ event.category }}</span>
                 </a>
-                <br> {% if event.image %}
-
-                <img class=" card-img-top" src="{{ event.image.url }}" alt="Card image"> {% else %}
-                <img class="card-img-top" src="https://picsum.photos/300/200/?random={{event.pk}}" alt="Card image"> {% endif %}
-
+               -->
+                
+                <div class="card-body">
+                        {% if event.price %}
+                        <span style="float: right;" class="label label-success">{{ event.price }} €</span>
+    
+                        {% endif %}
                 <h4 class="card-title">
-                    <b>{{ event.title|upper }}</b>
-                    {% if event.price %}
-
-                    <span style="float: right;" class="label label-success">{{ event.price }} €</span>
-
-                    {% endif %}</h4>
+                    <b>{{ event.title|upper}}</b>
+                   </h4>
                 <p class="card-text multiline-ellipsis" style="text-align: justify">{{ event.description }}</p>
                 <a href="{% url 'event_detail' pk=event.pk  %}">
                     <button type="button" class="btn btn-info" style="float: right;">
@@ -42,12 +45,15 @@
                 </small>
 
             </div>
-
+        </div>
     </div>
     {% endfor %}
 
     <div class="col-12 pagination">
         {% include 'core/_pagination.html' %}
     </div>
+    <div class="col-12">
+    {% include 'core/map.html' %}
+</div>
 </div>
 {% endblock %}

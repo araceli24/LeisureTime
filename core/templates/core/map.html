@@ -1,106 +1,76 @@
-{% extends 'core/base.html' %}
-{% block content %}
+{% load static from staticfiles %} {% block scripts %}
+<script>
 
+  function initMap() {
 
-<html>
-<head> 
-    <meta charset="UTF-8">
-	<meta name="viewport" content="initial-scale=1.0">
-    <title>Maps JavaScript API</title>
-	<style> 
-  	  #map {
-        height: 75%;
-        width: 100%;
-        
+    var latlng = new google.maps.LatLng(42.5245603, -8.8171341);
+    var mapOptions = {
+      zoom: 11,
+      
+      center: latlng,
+      mapTypeId: google.maps.MapTypeId.ROADMAP,
+      mapTypeControl: true,
+      scaleControl: true,
+      mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          mapTypeIds: ['roadmap', 'terrain']
       }
-     
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-	</style> 
-</head>  
-	<body>
-    <div id ="map"> </div> 
-   
 
-    
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBCKiIqCdZGrVxx06LSbe7uG3zXOq1Cz5k&callback=initMap" async defer></script>
-	<script>
-    
-    
-     var map;
-     var i =0;
+    }
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    setMarkers(map, events);
+  }
 
-  	 function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-		    center: {lat: 42.5245603, lng: -8.8171341 },
-        zoom: 11,
-        });
-
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.4443161, lng: -8.7840634},
-          map: map,
-	        title: 'Concello de Meaño'
-          
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5149919, lng: -8.8183807},
-          map: map,
-	        title: 'Concello de Cambados'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5134679, lng: -8.7897352},
-          map: map,
-	        title: 'Concello de Ribadumia'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5183947, lng: -8.7058767},
-          map: map,
-	        title: 'Concello de Meis'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.4018026, lng: -8.8122816},
-          map: map,
-	        title: 'Concello de Sanxenxo'
-        });
-        
-        var marker = new google.maps.Marker({
-          position: {lat: 42.4955412, lng: -8.8659037},
-          map: map,
-	        title: 'Concello de O Grove'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5972951, lng: -8.7657518},
-          map: map,
-	        title: 'Concello de Vilagarcía de Arousa'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5643528, lng: -8.8308185},
-          map: map,
-	        title: 'Concello de Vilanova de Arousa'
-        });
-
-        var marker = new google.maps.Marker({
-          position: {lat: 42.5608457, lng: -8.8881973},
-          map: map,
-	        title: 'Concello da Illa de Arousa'
-        });
-
-
-
-      }
+  // var iconMarker = {
+  //   path: 'M7.5,14C-0.3,7.8,0,5.6,0,3.8C0,2.1,1.4,0,3.7,0C6,0,7.4,2.5,7.4,2.5S8.9,0,11.2,0C13.5,0,15,2.1,15,3.8 C15,5.6,15.2,7.8,7.5,14z',
+  //   fillColor: 'red',
+  //   fillOpacity: 1,
+  //   scale: 1,
+  //   strokeColor: 'black',
+  //   strokeWeight: 1
+  // };
  
-	</script>
-	</body> 
-</html>
 
+  var events = [
+    ['Carreira Popular', 42.4443161, -8.7840634, 'Carreira popular de Meaño'],
+    ['Concerto Leiva', 42.4018026, -8.8122816, 'Concerto de Leiva en Sanxenxo'],
+    ['Cine na rúa', 42.5149919, -8.8183807, 'Xornada especial do cine'],
+
+  ];
+
+  var infowindow;
+  function setMarkers(map, events) {
+
+    for (var i = 0; i < events.length; i++) {
+      var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+
+      var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
+      var marker = new google.maps.Marker({
+        // draggable: true,
+        
+        icon: image,
+        animation: google.maps.Animation.DROP,
+        position: myLatLng,
+        map: map,
+        title: events[i][0],
+      });
+
+      (function (i, marker) {
+        google.maps.event.addListener(marker, 'click', function () {
+          if (!infowindow) {
+            infowindow = new google.maps.InfoWindow();
+          }
+          infowindow.setContent(events[i][3]);
+          infowindow.open(map, marker);
+        });
+      })(i, marker);
+    }
+  };
+  initMap();
+
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap" async
+  defer></script> {% endblock %} {% block content %}
+<div id="map"> </div>
 {% endblock %}

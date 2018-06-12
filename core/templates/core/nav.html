@@ -1,0 +1,62 @@
+
+<div class="topnav  navbar-expand-lg navbar-expand-md navbar-light bg-light">
+
+<div class="container">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon">
+        </button>
+
+        <p>
+            <a class="navbar-brand" href="/">
+                <span class="fab fa-servicestack"></span>
+                 {% if user.is_authenticated %} Hola, {{ user.get_username }}  {% else %} Lecer no Salnés {% endif %}</a>
+        </p>
+
+    </div>
+
+    <div class="collapse navbar-collapse" id="myNavbar">
+
+        <ul class="nav navbar-nav navbar-right">
+
+            <!-- <li>
+                <a href="{% url 'map' %}">
+                    <span class="glyphicon glyphicon-globe"></span>Mapa</a>
+            </li> -->
+
+            <li>
+                <a href="{% url 'event_expired' %}">
+                    <span class="glyphicon glyphicon-list-alt"></span>Historial</a>
+            </li>
+            <!-- <li>
+                <a href="{% url 'search' %}">
+                    <span class="glyphicon glyphicon-search"></span>Buscar</a>
+            </li> -->
+
+            {% if user.is_authenticated %}
+            <li>
+                <a href="{% url 'event_new' %}">
+                    <span class="glyphicon glyphicon-folder-open"></span>Nuevo Evento</a>
+            </li>
+            <li>
+                <a href="{% url 'place_new' %}">
+                    <span class="glyphicon glyphicon-plus"></span>Añadir Ubicación</a>
+            </li>
+            <li>
+                <a href="{% url 'logout' %}">
+                    <span class="glyphicon glyphicon-log-out"></span>Logout</a>
+            </li>
+
+            {% else %}
+            <li>
+                <a href="{% url 'login' %}">
+                    <span class="glyphicon glyphicon-log-in"></span> Login</a>
+            </li>
+            {% endif %}
+        </ul>
+
+    </div>
+</div>
+
+
+</div>

@@ -1,4 +1,5 @@
 {% load static from staticfiles %}
+
 <html>
 
 <head>
@@ -9,6 +10,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Cookie|Kaushan+Script|Lobster+Two|Pacifico|Satisfy" rel="stylesheet">
+  
+  <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Concert+One|Fira+Sans+Condensed|Khand|Poor+Story" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
@@ -20,76 +27,19 @@
     crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
+
+
+  {% block scripts %} {% endblock %}
+  
 </head>
 
 <body>
-
-  <div class="topnav  navbar-expand-lg navbar-expand-md navbar-light bg-light">
-
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon">
-      </button>
-
-      <p>
-        <a class="navbar-brand" href="/">
-          <span class="glyphicon glyphicon-home"></span> {% if user.is_authenticated %} Hola, {{ user.get_username }} {% endif %}</a>
-      </p>
-
-    </div>
-
-    <div class="collapse navbar-collapse" id="myNavbar">
-
-      <ul class="nav navbar-nav navbar-right">
-
-          <li>
-              <a href="{% url 'map' %}">
-                <span class="glyphicon glyphicon-globe"></span>Mapa</a>
-            </li>
-
-        <li>
-          <a href="{% url 'event_expired' %}">
-            <span class="glyphicon glyphicon-list-alt"></span>Historial</a>
-        </li>
-        <li>
-          <a href="{% url 'search' %}">
-            <span class="glyphicon glyphicon-search"></span>Buscar</a>
-        </li>
-
-        {% if user.is_authenticated %}
-        <li>
-          <a href="{% url 'event_new' %}">
-            <span class="glyphicon glyphicon-folder-open"></span>Nuevo Evento</a>
-        </li>
-        <li>
-          <a href="{% url 'place_new' %}">
-            <span class="glyphicon glyphicon-plus"></span>Añadir Ubicación</a>
-        </li>
-        <li>
-          <a href="{% url 'logout' %}">
-            <span class="glyphicon glyphicon-log-out"></span>Logout</a>
-        </li>
-
-        {% else %}
-        <li>
-          <a href="{% url 'login' %}">
-            <span class="glyphicon glyphicon-log-in"></span> Login</a>
-        </li>
-        {% endif %}
-      </ul>
-
-    </div>
-
-    <div class="jumbotron">
-
-      <h1>Lecer no Salnés</h1>
-      <p><b>Eventos e actividades da comarca </b></p>
-    </div>
-
-  </div>
-
-  <div class="container text-justify">
+ 
+    {% include 'core/nav.html' %}
+    {% include 'core/jumbotron.html' %}
+    
+  
+  <div class="page-content container text-justify">
  
     {% block content %} {% endblock %}
 

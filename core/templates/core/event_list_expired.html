@@ -1,19 +1,42 @@
 {% extends 'core/base.html' %} {% block content %}
+<div class="container">
+<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 
-<div class="passed">
-  <h4>
-    <b>TE HAS PERDIDO...</b>
-  </h4>
-  {% for event in events %}
+      <h2 id="expired">Te has perdido...</h2>
 
-  <li>{{ event.title }} - {{ event.description|truncatechars:250 }}</li>
-  <a href="{% url 'event_detail' pk=event.pk  %}">{{ event.date }}</a>
+      {% for event in events %}
+
+
+      <ul class="timeline">
+        <li class="timeline">
+          <div class="timeline-badge">
+            <p>{{ event.date }}</p>
+          </div>
+          <div class="timeline-panel">
+            <a href="{% url 'event_detail' pk=event.pk  %}">
+              <div class="timeline-heading">
+                <h4 class="timeline-title">{{ event.title }}</h4>
+            </a>
+
+            </div>
+            <div class="timeline-body">
+              <p>{{ event.description|truncatechars:60 }}</p>
+
+              <p>
+                <small class="text-muted">
+                  <i class="glyphicon glyphicon-map-marker"></i> {{ event.place }}</small>
+              </p>
+
+            </div>
+
+        </li>
+
+      </ul>
 
   {% endfor %}
 
-  <br>
-  <br>
-  <a id="volver" href="/">
-    <span class="glyphicon glyphicon-menu-left"></span>Volver</a>
 </div>
-{% endblock %}
+</div>
+</div>
+  {% endblock %}
