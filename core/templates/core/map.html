@@ -21,34 +21,40 @@
     setMarkers(map, events);
   }
 
-  // var iconMarker = {
-  //   path: 'M7.5,14C-0.3,7.8,0,5.6,0,3.8C0,2.1,1.4,0,3.7,0C6,0,7.4,2.5,7.4,2.5S8.9,0,11.2,0C13.5,0,15,2.1,15,3.8 C15,5.6,15.2,7.8,7.5,14z',
-  //   fillColor: 'red',
-  //   fillOpacity: 1,
-  //   scale: 1,
-  //   strokeColor: 'black',
-  //   strokeWeight: 1
-  // };
+  var iconMarker = {
+    path: 'M0-48c-9.8 0-17.7 7.8-17.7 17.4 0 15.5 17.7 30.6 17.7 30.6s17.7-15.4 17.7-30.6c0-9.6-7.9-17.4-17.7-17.4z',
+    fillColor: 'rgb(12, 111, 122)',
+    fillOpacity: 0.7,
+    scale: 0.7,
+   
+  };
  
 
   var events = [
-    ['Carreira Popular', 42.4443161, -8.7840634, 'Carreira popular de Meaño'],
-    ['Concerto Leiva', 42.4018026, -8.8122816, 'Concerto de Leiva en Sanxenxo'],
-    ['Cine na rúa', 42.5149919, -8.8183807, 'Xornada especial do cine'],
+    ['CAMBADOS', 42.5137374, -8.8145173, 'Municipio situado en el centro de las Rías Baixas.La villa de Cambados es conocida principalmente por ser la Capital del Vino Albariño, por su excelente gastronomía, por su incomparable Conjunto Histórico Artístico, por la amabilidad y familiaridad de su gente … pero Cambados es mucho más: es tiempo de ocio, de tranquilidad, relajación y fiesta.', 'https://cambados.es/es/'],
+    ['SANXENXO', 42.4002995, -8.8066454, 'Nadie le discute a Sanxenxo el honorífico título de capital del turismo en las Rías Baixas. Casi unida a Portonovo, ambas son localidades de juventud, de “movida”, playa y tapeo. Sanxenxo es una de las capitales del turismo gallego. Su población se multiplica en verano, y el gigantismo urbanístico hace que todo sea moderno. ', 'http://www.sanxenxo.com/'],
+    ['MEAÑO', 42.4589021, -8.7811645, 'Rodeado polos concellos de Ribadumia, Poio, Sanxenxo e Cambados, e aberto na súa parte baixa ó mar de Arousa, o Concello de Meaño combina como poucos a beleza natural da súa paisaxe coas imáxes máis emblemáticas da Galicia rural.', 'http://www.concellodemeano.com/ga/inicio'],
+    ['VILAGARCIA DE AROUSA', 42.5972951, -8.7635631, 'Vilagarcía de Arousa es hoy un centro turístico clave en Galicia, gracias a su excelente ubicación, estando bien comunidada con cualquier punto de las Rías Baixas,  con extensas playas con bandera azul, naturaleza y parques, con rutas de senderismo como la Sarmiento o las de Cortegada, y pazos cargados de historia para visitar.', 'https://www.vilagarcia.com/'],
+    ['MEIS', 42.5183947, -8.7036880, 'Está situado en pleno corazón de la comarca del Salnés. Limita al norte con Villanueva de Arosa y Portas, al este con Barro y Pontevedra, al sur con Poyo y Meaño y al oeste con Ribadumia.', 'http://www.meis.gal/'],
+    ['RIBADUMIA', 42.5146137, -8.7536237, 'Limitando cos municipios de Vilanova de Arousa, Cambados, Meaño e Meis. Vive o Patrimonio Natural e Cultural en Ribadumia. Abre ben os ollos ante as propostas que che presentamos.', 'https://www.ribadumia.org/'],
+    ['O GROVE', 42.4964925, -8.8652472, 'Península situada na entrada da ría de Arousa. Limita ao sueste con Sanxenxo. Ocupa unha extensión de 21 km cadrados e está formada por dúas parroquias (San Martiño e San Vicente) e unha illa poboada, A Toxa.', 'http://www.concellodogrove.es/'],
+    ['VILANOVA DE AROUSA', 42.5627589, -8.8274228, 'Municipio costero situado en la parte occidental de la comarca del Salnés', 'http://www.vilanovadearousa.com/'],
+    ['A ILLA DE AROUSA', 42.5521338, -8.8666032, 'A Illa conta con zonas protexidas, que serven de morada de paso a moitas especies, como o Espazo Natural do Carreirón, o pequeno pulmón do municipio, a zona da Area da Secada coa duna móvil mirando cara a costa ou os Illotes de Xidoiros Areoso e Pedregoso, un gran areal e rochedal que fan semellar un oasis no medio do Atlántico.', 'http://www.ailladearousa.es/'],
 
   ];
 
   var infowindow;
+  
   function setMarkers(map, events) {
 
     for (var i = 0; i < events.length; i++) {
-      var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+     // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
 
       var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
       var marker = new google.maps.Marker({
         // draggable: true,
         
-        icon: image,
+        icon: iconMarker,
         animation: google.maps.Animation.DROP,
         position: myLatLng,
         map: map,
@@ -60,7 +66,11 @@
           if (!infowindow) {
             infowindow = new google.maps.InfoWindow();
           }
-          infowindow.setContent(events[i][3]);
+          var html = "<b>" + events[i][0] + "</b> <br/>" + events[i][3] + "</b> <br/>" + 
+          '<a href='+events[i][4]+' > '+events[i][4]+'</a>' + "</b> <br/>"
+          
+         
+          infowindow.setContent(html);
           infowindow.open(map, marker);
         });
       })(i, marker);
