@@ -79,16 +79,23 @@ div.page-content.container.text-justify form p label {
 
   input#id_description__icontains{
 
-    width: auto;
+    width: 60%;
     height: auto;
     color: #555;
- 
+    padding: 6px;
+    margin-top: 2%;
+  }
+
+  button#submitsearch.searchButton{
+
+    padding: 6px;
+    margin: -1px;
   }
 
   input#id_description__icontains.fieldWrapper{
 
     color: #555;
-    padding: 6px;
+  
     
   }
 
@@ -104,12 +111,12 @@ div.page-content.container.text-justify form p label {
     border-collapse: collapse;
   }
 
-
+/* 
 
   #submitsearch{
     padding: 6px;
    
-  }
+  } */
 /* 
 #centered form div#centered.col-md-6.col-md-offset-3 div.input-group-input-group-lg input{
 
@@ -381,6 +388,14 @@ div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-t
  */
 
 
+ i.fa.fa-search{
+
+  color: rgb(12, 111, 122);
+  box-shadow: 1px 1px 1px #fff;
+  
+
+ }
+
 
 
 div.list div.title h4 {
@@ -555,10 +570,7 @@ div.timeline-badge p{
 
   border-bottom: 15px solid transparent;
 
-
-
 }
-
 
 .timeline > li > .timeline-panel:after {
 
@@ -597,8 +609,6 @@ div.timeline-badge p{
   position: absolute;
 
   top: 16px;
-
-
 
   margin-left: -60px;
 
