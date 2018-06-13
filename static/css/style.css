@@ -321,6 +321,13 @@ select#id_category.form-control{
   padding: 0%;
 }
 
+select#id_council.form-control{
+
+  padding: 0%;
+}
+
+
+
 
 form.event-form p textarea#id_description{
   height:unset;
