@@ -316,6 +316,11 @@ select[multiple], select[size] {
   height: max-content;
 }
 
+select#id_category.form-control{
+
+  padding: 0%;
+}
+
 
 form.event-form p textarea#id_description{
   height:unset;
