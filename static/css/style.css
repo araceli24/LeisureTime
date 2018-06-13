@@ -45,7 +45,7 @@ div.page-content.container.text-justify form p label {
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
-  text-shadow: 2px 2px 2px black;
+  text-shadow:  1px 1px white;
   color: white;
   
 
@@ -84,12 +84,14 @@ div.page-content.container.text-justify form p label {
     color: #555;
     padding: 6px;
     margin-top: 2%;
+    border-radius: 6px;
   }
 
   button#submitsearch.searchButton{
 
-    padding: 6px;
+    padding: 7px;
     margin: -1px;
+    border-radius: 6px;
   }
 
   input#id_description__icontains.fieldWrapper{
@@ -314,10 +316,6 @@ select[multiple], select[size] {
   height: max-content;
 }
 
-select.form-control:not([size]):not([multiple]){
-
-  height: max-content;
-}
 
 form.event-form p textarea#id_description{
   height:unset;
