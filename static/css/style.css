@@ -389,7 +389,7 @@ div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-t
  i.fa.fa-search{
 
   color: rgb(12, 111, 122);
-  box-shadow: 1px 1px 1px #fff;
+background: transparent;
   
 
  }
