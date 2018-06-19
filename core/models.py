@@ -19,12 +19,12 @@ class Place(TimeStampedModel):
     
         ('CAMBADOS', 'Cambados'),
         ('O GROVE', 'O Grove'),
-        ('ILLA DE AROUSA', 'Illa de Arousa'),
+        ('A ILLA', 'A Illa'),
         ('MEAÑO', 'Meaño'),
         ('MEIS', 'Meis'),
         ('RIBADUMIA', 'Ribadumia'),
         ('SANXENXO', 'Sanxenxo'),
-        ('VILAGARCÍA DE AROUSA', 'Vilagarcía'),
+        ('VILAGARCÍA', 'Vilagarcía'),
         ('VILANOVA', 'Vilanova'),
     )
 
@@ -59,7 +59,6 @@ class Event(TimeStampedModel):
         ('Tarde', 'Tarde'),
         ('Noche','Noche' ),
         ('Fin de semana ', 'Fin de semana'),
-        
     )
 
     user = models.ManyToManyField(User, verbose_name='Administrador')

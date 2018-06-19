@@ -45,7 +45,7 @@ div.page-content.container.text-justify form p label {
   background-position: center;
   -webkit-background-size: cover;
   background-size: cover;
-  text-shadow: 2px 2px 2px black;
+  text-shadow:  1px 1px white;
   color: white;
   
 
@@ -79,16 +79,25 @@ div.page-content.container.text-justify form p label {
 
   input#id_description__icontains{
 
-    width: auto;
+    width: 60%;
     height: auto;
     color: #555;
- 
+    padding: 6px;
+    margin-top: 2%;
+    border-radius: 6px;
+  }
+
+  button#submitsearch.searchButton{
+
+    padding: 7px;
+    margin: -1px;
+    border-radius: 6px;
   }
 
   input#id_description__icontains.fieldWrapper{
 
     color: #555;
-    padding: 6px;
+  
     
   }
 
@@ -104,15 +113,13 @@ div.page-content.container.text-justify form p label {
     border-collapse: collapse;
   }
 
-
-
+/* 
   #submitsearch{
     padding: 6px;
    
-  }
+  } */
 /* 
 #centered form div#centered.col-md-6.col-md-offset-3 div.input-group-input-group-lg input{
-
     font-family: Arial, Helvetica, sans-serif;
     color: #555;
     padding: 6px;
@@ -132,6 +139,7 @@ div.timeline-badge a small{
  
 
 div.timeline-heading h4.timeline-title {
+  padding: 1%;
   background:rgb(12, 111, 122); 
   color:#fff;
   text-shadow: 1px 1px 1px #999;
@@ -222,11 +230,14 @@ padding-bottom: 20px;
   color: rgb(12, 111, 122);
 }
 
+#carddetail{
+  padding: 5%;
+}
+
+
+
 /* #myButton{
-
 color: #555;
-
-
 } */
 
 a{
@@ -307,10 +318,18 @@ select[multiple], select[size] {
   height: max-content;
 }
 
-select.form-control:not([size]):not([multiple]){
+select#id_category.form-control{
 
-  height: max-content;
+  padding: 0%;
 }
+
+select#id_council.form-control{
+
+  padding: 0%;
+}
+
+
+
 
 form.event-form p textarea#id_description{
   height:unset;
@@ -374,12 +393,18 @@ div.list div.col-12.col-xs-12.col-md-6.col-lg-4 div.card div.card-body h4.card-t
 }
 
 /* div.card.border-secondary.mb-3 div.card-body {
-
  background-image: url("https://picsum.photos/300/200/?random={{event.pk}}"); 
-
 }
  */
 
+
+ i.fa.fa-search{
+
+  color: rgb(12, 111, 122);
+background: transparent;
+  
+
+ }
 
 
 
@@ -431,6 +456,12 @@ h2#expired{
   color: rgb(12, 111, 122);
 
 }
+/* 
+div div.timeline-heading{
+
+  margin: 2%;
+} */
+
 
 div.timeline-heading h4.timeline-title{
 
@@ -524,7 +555,6 @@ div.timeline-badge p{
 
   width: 85%;
   margin: 2rem;
-  padding: 2rem;
   border: 1px solid #d4d4d4;
   border-radius: 2px;
 
@@ -555,10 +585,7 @@ div.timeline-badge p{
 
   border-bottom: 15px solid transparent;
 
-
-
 }
-
 
 .timeline > li > .timeline-panel:after {
 
@@ -597,8 +624,6 @@ div.timeline-badge p{
   position: absolute;
 
   top: 16px;
-
-
 
   margin-left: -60px;
 

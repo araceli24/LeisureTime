@@ -1,20 +1,21 @@
 from django.conf.urls import include, url
-from django.urls import path
+from django.urls import path, re_path
 from . import views
 from core.views import EventDetail
 
 urlpatterns = [
-    url(r'^$', views.EventListView.as_view(), name='events_list'),
+    path('', views.EventListView.as_view(), name='events_list'),
 
-    url(r'^search/$', views.EventSearch.as_view(),  name='search'),
-    url(r'^event/expired/$', views.EventListViewExpired.as_view(),  name='event_expired'),
+    path('search/', views.EventSearch.as_view(),  name='search'),
+    path('event/expired/', views.EventListViewExpired.as_view(),  name='event_expired'),
 
-    url(r'^event/(?P<pk>\d+)/$', views.EventDetail.as_view(), name='event_detail'),
-    url(r'^event/new/$', views.EventCreate.as_view(), name='event_new'),
-    url(r'^place/new/$', views.PlaceCreate.as_view(), name='place_new'),
-    url(r'^event/(?P<pk>\d+)/delete/$', views.EventDelete.as_view(), name='event_delete'),
-    url(r'^event/(?P<pk>\d+)/edit/$', views.EventUpdate.as_view(), name='event_edit'),
-    url(r'^mapa', views.Map.as_view(), name='map'),
+    
+    path('event/new', views.EventCreate.as_view(), name='event_new'),
+    path('place/new', views.PlaceCreate.as_view(), name='place_new'),
+    re_path(r'^event/(?P<pk>\d+)/delete/$', views.EventDelete.as_view(), name='event_delete'),
+    re_path(r'^event/(?P<pk>\d+)/edit/$', views.EventUpdate.as_view(), name='event_edit'),
+    path('mapa', views.Map.as_view(), name='map'),
+    re_path(r'^event/(?P<pk>\d+)/$', views.EventDetail.as_view(), name='event_detail'),
     # path('accounts/', include('django.contrib.auth.urls')),
 
 

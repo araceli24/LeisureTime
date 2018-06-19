@@ -26,7 +26,7 @@
     
                         {% endif %}
                 <h4 class="card-title">
-                    <b>{{ event.title|upper}}</b>
+                    <b>{{ event.title|upper|truncatechars:35}}</b>
                    </h4>
                 <p class="card-text multiline-ellipsis" style="text-align: justify">{{ event.description }}</p>
                 <a href="{% url 'event_detail' pk=event.pk  %}">

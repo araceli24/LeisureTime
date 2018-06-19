@@ -39,10 +39,9 @@ urlpatterns = [
     path('', include('core.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
      name='django.contrib.sitemaps.views.sitemap') 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
+] 
 if settings.DEBUG:
     import debug_toolbar
     urlpatterns = [
         re_path(r'^__debug__/', include(debug_toolbar.urls)),
-    ] + urlpatterns
+    ] + urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

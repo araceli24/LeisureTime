@@ -42,26 +42,14 @@ INSTALLED_APPS = [
     'webapp',
 
     'versatileimagefield',
-    'debug_toolbar',
+    
     'django_filters',
     'bootstrap4',
+    'debug_toolbar',
   
     
 ]
 MAPS_API_KEY = 'AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568'
-# GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyDA18RbZcexu38PQFo6ElQFtRG3_Ft28HA'
-# GEOPOSITION_MAP_OPTIONS = {
-#     'minZoom': 3,
-#     'maxZoom': 15,
-# }
-
-# GEOPOSITION_MARKER_OPTIONS = {
-#          'cursor': 'move'
-#      }
-
-# TEMPLATE_CONTEXT_PROCESSORS = (
-#     "django.core.context_processors.request",
-# )
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',

@@ -13,12 +13,13 @@
 
 <div class="col-6 col-xs-6 col-md-3 col-lg-2 d-flex align-items-stretch" id="search">
 <div class="card border-secondary mb-3"  style="max-width: 18rem;" id="card-search">
-    <img class="card-img" src="https://picsum.photos/300/200/?random={{event.pk}}" alt="Card image"> 
-
+    <a href="{% url 'event_detail' pk=event.pk  %}">
+    <img class="card-img" src="https://picsum.photos/300/200/?random={{event.pk}}"> 
+  </a>
   <div class="card-header">{{ event.date|date:"D d M" }}</div>
   <div class="card-body">
     <h4 class="card-text">
-      <a href="{% url 'event_detail' pk=event.pk  %}">{{ event.title }}</a>
+      {{ event.title|upper|truncatechars:20}}
     </h4>
     <!-- <h5 class="card-text">{{ event.description|truncatechars:30 }}</h5> -->
   </div>
