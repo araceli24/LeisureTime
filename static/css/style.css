@@ -24,9 +24,16 @@ footer {
   }
 
 
+#iframe{
+
+  padding-bottom: 3%;
+
+
+}
+
 div.page-content.container.text-justify form p label {
 
-  padding-top: 3%;
+  padding-bottom: 3%;
 
 }
 
