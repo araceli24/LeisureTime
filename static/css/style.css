@@ -332,14 +332,8 @@ select[multiple], select[size] {
   height: max-content;
 }
 
-select#id_category.form-control{
-
-  padding: 0%;
-}
-
-select#id_council.form-control{
-
-  padding: 0%;
+select.form-control:not([size]):not([multiple]) {
+  height: auto;
 }
 
 
