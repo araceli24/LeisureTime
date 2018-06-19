@@ -8,14 +8,15 @@
 
         <form action="{% url 'search' %}"  method="get">
 
-              
-        <div class="col-md-6 col-md-offset-3" id="centered">
-                        <div class="input-group input-group-lg">
-                                <input type="text" name="description__icontains"  class="fieldWrapper" placeholder="Buscar..." id="id_description__icontains">
+        <div class="col-12" id="centered">
+                       <div class="container-search">
+                                
+                                <input type="text" name="description__icontains"  placeholder="Buscar..." id="id_description__icontains">
                               
-                                <input type="submit"  value="Buscar" id="submitsearch">
-                        </span>
-                               
+                              
+                                <button type="submit" class="searchButton"  id="submitsearch">
+                                        <i class="fa fa-search"></i>
+                                </button>
 
                         </div>
                 </div>
