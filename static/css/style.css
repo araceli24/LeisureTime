@@ -4,6 +4,11 @@ body{
   height: 100vh;
 
 }
+html{
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
 
 .page-content{
   flex-grow: 1;
@@ -11,9 +16,11 @@ body{
 
 footer {
     background-color: #f2f2f2;
-    padding: 25px;
+    padding: 5px;
     color: dimgray;
-
+  
+    bottom:0;
+    left:0;
   }
 
 
@@ -437,7 +444,7 @@ div.list div.title h4 {
 
 
 #map {
-  height: 50%;
+  height: 30%;
   width: 100%;
   margin-bottom: 3%;
 }
