@@ -59,16 +59,15 @@
                     console.log('Reverse Geocoding:');
                     console.dir(results);
                     $('#reverseGeocodingResult_formatted_address').text(results[0].formatted_address);
-                    // address components: recupero di tutti gli elementi 
                     console.log('Address components:');
                     console.dir(results[0].address_components);
                     var temp = [];
                     for (var i = 0; i < results[0].address_components.length; i++) {
                         console.log(results[0].address_components[i]);
-                        if ($.inArray(results[0].address_components[i].long_name, temp) === -1) { // evita potenziali duplicati
+                        if ($.inArray(results[0].address_components[i].long_name, temp) === -1) {
                             temp.push(results[0].address_components[i].long_name);
                         }
-                        if ($.inArray(results[0].address_components[i].short_name, temp) === -1) { // evita potenziali duplicati
+                        if ($.inArray(results[0].address_components[i].short_name, temp) === -1) {
                             temp.push(results[0].address_components[i].short_name);
                         }
                     }
