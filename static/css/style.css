@@ -73,6 +73,10 @@ div.page-content.container.text-justify form p label {
 
   }
 
+  .navbar-nav {
+    margin: 0px;
+}
+
   .jumbotron p{
 
     font-family: 'Kaushan Script', cursive;
