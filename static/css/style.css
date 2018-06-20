@@ -461,6 +461,12 @@ div.list div.title h4 {
   margin-bottom: 3%;
 }
 
+.gm-style-iw {
+  width: 50px; 
+  min-height: 50px;
+  }
+
+ 
 
 #corners {
   border-radius: 25px;

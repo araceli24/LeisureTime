@@ -4,14 +4,14 @@
     var latlng = new google.maps.LatLng(42.5245603, -8.8171341);
     var mapOptions = {
       zoom: 11,
-      
+
       center: latlng,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: true,
       scaleControl: true,
       mapTypeControlOptions: {
-          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
-          mapTypeIds: ['roadmap', 'terrain']
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        mapTypeIds: ['roadmap', 'terrain']
       }
     }
     var map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -22,9 +22,9 @@
     fillColor: 'rgb(12, 111, 122)',
     fillOpacity: 0.7,
     scale: 0.7,
-   
+
   };
- 
+
   var events = [
     ['CAMBADOS', 42.5137374, -8.8145173, 'Municipio situado en el centro de las Rías Baixas.La villa de Cambados es conocida principalmente por ser la Capital del Vino Albariño, por su excelente gastronomía, por su incomparable Conjunto Histórico Artístico, por la amabilidad y familiaridad de su gente … pero Cambados es mucho más: es tiempo de ocio, de tranquilidad, relajación y fiesta.', 'https://cambados.es/es/'],
     ['SANXENXO', 42.4002995, -8.8066454, 'Nadie le discute a Sanxenxo el honorífico título de capital del turismo en las Rías Baixas. Casi unida a Portonovo, ambas son localidades de juventud, de “movida”, playa y tapeo. Sanxenxo es una de las capitales del turismo gallego. Su población se multiplica en verano, y el gigantismo urbanístico hace que todo sea moderno. ', 'http://www.sanxenxo.com/'],
@@ -37,14 +37,14 @@
     ['A ILLA DE AROUSA', 42.5521338, -8.8666032, 'A Illa conta con zonas protexidas, que serven de morada de paso a moitas especies, como o Espazo Natural do Carreirón, o pequeno pulmón do municipio, a zona da Area da Secada coa duna móvil mirando cara a costa ou os Illotes de Xidoiros Areoso e Pedregoso, un gran areal e rochedal que fan semellar un oasis no medio do Atlántico.', 'http://www.ailladearousa.es/'],
   ];
   var infowindow;
-  
+
   function setMarkers(map, events) {
     for (var i = 0; i < events.length; i++) {
-     // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+      // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
       var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
       var marker = new google.maps.Marker({
         // draggable: true,
-        
+
         icon: iconMarker,
         animation: google.maps.Animation.DROP,
         position: myLatLng,
@@ -56,10 +56,10 @@
           if (!infowindow) {
             infowindow = new google.maps.InfoWindow();
           }
-          var html = "<b>" + events[i][0] + "</b> <br/>" + events[i][3] + "</b> <br/>" + 
-          '<a href='+events[i][4]+' > '+events[i][4]+'</a>' + "</b> <br/>"
-          
-         
+          var html = "<b>" + events[i][0] + "</b> <br/>" + events[i][3] + "</b> <br/>" +
+            '<a href=' + events[i][4] + ' > ' + events[i][4] + '</a>' + "</b> <br/>"
+
+
           infowindow.setContent(html);
           infowindow.open(map, marker);
         });
