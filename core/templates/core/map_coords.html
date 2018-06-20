@@ -1,6 +1,5 @@
 {% load static from staticfiles %} {% block scripts %}
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap" async
-    defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCP0JK81U42v3tfz6ljPsnE9TJ3RQnM568&callback=initMap"></script>
 
 <script>
     $(document).ready(function () {
@@ -82,42 +81,49 @@
     });
 </script>
 
+<div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+    <hr>
+    <h2>Obtener coordenadas</h2>
+    <p>
+        <label for="addr">
+            <strong>Inserta dirección:</strong>
+        </label>
+        <br>
+        <input id="addr" type="text" value="Meaño">
+        <button id="creaMappa" type="button">Buscar</button>
+    </p>
+    <p>Mueve el marcador para cambiar las coordenadas</p>
+    <p>
+        <strong>Coordenadas</strong>:
+        <span id="lat">--</span>,
+        <span id="lng">--</span>
+    </p>
 
-<hr>
-<h2>Obtener coordenadas</h2>
-<p>
-    <label for="addr">
-        <strong>Inserta dirección:</strong>
-    </label>
-    <br>
-    <input id="addr" type="text" value="Meaño">
-    <button id="creaMappa" type="button">Buscar</button>
-</p>
-<p>Mueve el marcador para cambiar las coordenadas</p>
-<p>
-    <strong>Coordenadas</strong>:
-    <span id="lat">--</span>,
-    <span id="lng">--</span>
-</p>
-<div class="map" id="map1"></div>
 
-<h2>Información Completa</h2>
+    <h2>Información Completa</h2>
 
-<p>
-    <button id="reverseGeocoding" type="button">Obtener dirección completa</button>
-</p>
-<p>Dirección completa:
-    <span id="reverseGeocodingResult_formatted_address">--</span>
-</p>
+    <p>
+        <button id="reverseGeocoding" type="button">Obtener dirección completa</button>
+    </p>
+    <p>Dirección completa:
+        <span id="reverseGeocodingResult_formatted_address">--</span>
+    </p>
 
+</div>
+<div class=" map card col-lg-6 col-md-12 col-sm-12 col-xs-12 fluid centered" id="map1">
+<!-- <div class="map col-lg-6 col-md-6 col-sm-12 col-xs-12" id="map1"></div> -->
+</div>
 
 <style>
-    .map {
-        border: 1px solid #ccc;
-        background-color: #efefef;
-        height: 70%;
-        width: auto;
+    #map1 {
+        width: 100%;
+     height: 450px;
+        padding: 4%;
     }
+
+    #map1:hover{
+  transform: none;
+}
 </style>
 
 {% endblock %}
