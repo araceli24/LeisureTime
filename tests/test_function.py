@@ -15,19 +15,19 @@ class Search(unittest.TestCase):
         elem = driver.find_element_by_id("id_description__icontains")
         elem.send_keys("festa")
         
-        time.sleep(2)
+        time.sleep(3)
         ok = driver.find_element_by_id("submitsearch").click()
       
 
         elem2 = driver.find_element_by_id("id_description__icontains")
-        elem2.send_keys("meaño")
-        time.sleep(2)
+        elem2.send_keys("sanxenxo")
+        time.sleep(3)
         ok2 = driver.find_element_by_id("submitsearch").click()
     
 
         elem3 = driver.find_element_by_id("id_description__icontains")
         elem3.send_keys("cambados")
-        time.sleep(2)
+        time.sleep(3)
         ok3 = driver.find_element_by_id("submitsearch").click()
       
         time.sleep(2)

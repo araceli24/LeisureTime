@@ -227,6 +227,12 @@ padding-bottom: 20px;
   transform: none;
 }
 
+#card-place{
+margin-bottom: 2%;
+}
+
+
+
 #card-place:hover{
   transform: none;
 }
@@ -236,6 +242,11 @@ padding-bottom: 20px;
 
   font-family: 'Kaushan Script', cursive;
   color: rgb(12, 111, 122);
+}
+
+#card-new{
+  margin-bottom: 2%;
+
 }
 
 #card-new h2{
