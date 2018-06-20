@@ -466,7 +466,11 @@ div.list div.title h4 {
   min-height: 50px;
   }
 
- 
+#id_user{
+  pointer-events:none;
+
+}
+
 
 #corners {
   border-radius: 25px;

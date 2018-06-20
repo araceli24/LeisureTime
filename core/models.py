@@ -61,7 +61,8 @@ class Event(TimeStampedModel):
         ('Fin de semana ', 'Fin de semana'),
     )
 
-    user = models.ManyToManyField(User, verbose_name='Administrador')
+    # user = models.ManyToManyField(User, verbose_name='Administrador')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False)
     date = models.DateField('Fecha')
     date_end= models.DateField('Fecha fin',null=True, blank=True)
     time = models.TimeField('Hora',null=True, blank=True)

@@ -11,7 +11,7 @@ class TimeSelectMultiple(SelectMultiple):
 
 
 class EventForm(forms.ModelForm):
-    user = forms.ModelMultipleChoiceField(queryset=User.objects.all(), widget=TimeSelectMultiple)
+    # user = forms.ModelMultipleChoiceField(queryset=User.objects.all(), widget=TimeSelectMultiple)
 
     class Meta:
         model = Event

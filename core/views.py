@@ -94,6 +94,16 @@ class EventCreate(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy('events_list')
     form = EventForm
 
+    def get_initial(self):
+        initial = super(EventCreate, self).get_initial()
+        initial.update({
+                        'user': self.request.user.id})
+        return initial
+
+    # def form_valid(self, form):
+    #     form.instance.user = self.request.user
+    #     return super(EventCreate, self).form_valid(form)
+
 class PlaceCreate(LoginRequiredMixin, CreateView):
     model = Place
     fields = ['name', 'address', 'council', 'district', 'latitude', 'longitude']
