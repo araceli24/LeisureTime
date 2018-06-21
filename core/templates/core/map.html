@@ -40,10 +40,8 @@
 
   function setMarkers(map, events) {
     for (var i = 0; i < events.length; i++) {
-      // var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
       var myLatLng = new google.maps.LatLng(events[i][1], events[i][2]);
       var marker = new google.maps.Marker({
-        // draggable: true,
 
         icon: iconMarker,
         animation: google.maps.Animation.DROP,

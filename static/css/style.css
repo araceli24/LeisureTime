@@ -321,6 +321,9 @@ p{
 #centered{
   text-align: center;
 }
+#titlecard{
+  text-align: left;
+}
 
 div.card-footer small p {
 
